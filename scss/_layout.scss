@@ -1,0 +1,77 @@
+
+@use 'variables' as *;
+
+.l-page {
+    background-color: map-get($colors, 'background');
+    height: 100vh;
+    min-height: 500px;
+    display: flex;
+}
+
+.l-profile-navbar {
+    display: none;
+    position: absolute;
+    background-color: map-get($colors, 'profile-navbar-background');
+    top: 24px;
+    right: 88px;
+    padding: 16px;
+    border-radius: 4px;
+    
+    .link {
+        min-width: 160px;
+        display: block;
+        font-size: .75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: map-get($colors, 'medium-gray');
+        padding: 8px;
+        border-radius: 4px;
+        letter-spacing: .8px;
+
+        &:hover {
+            background-color: #3333;
+            color: white;
+        }
+    }
+}
+
+.l-sign-in-container {
+    position: relative;
+    max-width: 344px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px;
+}
+
+.l-sign-in-form {
+    margin-top: 24px;
+}
+
+.l-more-login-options {
+    display: flex;
+    gap: 6px;
+    margin: 8px 0 14px;
+}
+
+.l-checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.l-btn-submit {
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    transform: translateX(-50%);
+}
+
+.l-link-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+    position: absolute;
+    bottom: 24px;
+}

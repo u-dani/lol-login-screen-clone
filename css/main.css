@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+html, body {
+  font-family: "Montserrat", sans-serif;
+}
+
+fieldset {
+  border: none;
+}
+
+.l-page {
+  background-color: #F9F9F9;
+  height: 100vh;
+  min-height: 500px;
+  display: flex;
+}
+
+.l-profile-navbar {
+  display: none;
+  position: absolute;
+  background-color: #211F1F;
+  top: 24px;
+  right: 88px;
+  padding: 16px;
+  border-radius: 4px;
+}
+.l-profile-navbar .link {
+  min-width: 160px;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #B2B2B2;
+  padding: 8px;
+  border-radius: 4px;
+  letter-spacing: 0.8px;
+}
+.l-profile-navbar .link:hover {
+  background-color: rgba(51, 51, 51, 0.2);
+  color: white;
+}
+
+.l-sign-in-container {
+  position: relative;
+  max-width: 344px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px;
+}
+
+.l-sign-in-form {
+  margin-top: 24px;
+}
+
+.l-more-login-options {
+  display: flex;
+  gap: 6px;
+  margin: 8px 0 14px;
+}
+
+.l-checkbox-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.l-btn-submit {
+  position: absolute;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
+}
+
+.l-link-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 4px;
+  position: absolute;
+  bottom: 24px;
+}
+
+.c-toggle-profile-navbar {
+  position: absolute;
+  cursor: pointer;
+  padding: 5px 8px;
+  border-radius: 14px;
+  border: 1px solid rgba(51, 51, 51, 0.2);
+  top: 24px;
+  right: 32px;
+  background-color: rgba(255, 255, 255, 0.089);
+}
+.c-toggle-profile-navbar .icon {
+  margin-top: 2px;
+  width: 24px;
+}
+
+.c-logo {
+  width: 96px;
+  margin-bottom: 48px;
+}
+
+.c-form-title {
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.c-user-credentials-field {
+  position: relative;
+  background-color: red;
+}
+.c-user-credentials-field span {
+  position: absolute;
+  top: -2px;
+  left: 16px;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #868686;
+  transition: 0.1s;
+}
+.c-user-credentials-field input {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  width: 100%;
+  padding: 6px;
+  padding-top: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.5px;
+  outline: none;
+  background-color: #EDEDED;
+  margin-bottom: 12px;
+}
+.c-user-credentials-field input:focus ~ span, .c-user-credentials-field input:valid ~ span {
+  top: -12px;
+  left: 6px;
+}
+
+.c-button-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+  background-color: chocolate;
+  border: 1px solid rgba(51, 51, 51, 0.2);
+}
+.c-button-link .icon {
+  width: 14px;
+}
+.c-button-link--facebook {
+  background-color: #1877f2;
+}
+.c-button-link--facebook:hover {
+  background-color: #0b5fcc;
+}
+.c-button-link--google {
+  background-color: #fff;
+}
+.c-button-link--google:hover {
+  background-color: #f2f2f2;
+}
+.c-button-link--apple {
+  background-color: #000;
+}
+.c-button-link--apple .icon {
+  width: 13px;
+}
+.c-button-link--apple:hover {
+  background-color: #262626;
+}
+.c-button-link--xbox {
+  background-color: #107C10;
+}
+.c-button-link--xbox:hover {
+  background-color: #0a4f0a;
+}
+
+.c-wallpaper {
+  flex: 1;
+  background-image: url("../Images/wallpaper-login-lol.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.c-input-checkbox-field {
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.c-input-checkbox-field input {
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  background-color: #EDEDED;
+}
+.c-input-checkbox-field input:checked {
+  background-color: #D13639;
+}
+.c-input-checkbox-field input:checked::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  width: 3px;
+  height: 7px;
+  transform: rotate(45deg);
+}
+
+.c-btn-submit {
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 6px 8px;
+  border-radius: 16px;
+  background-color: #D13639;
+}
+.c-btn-submit .icon {
+  display: block;
+  font-size: 32px;
+  color: white;
+}
+.c-btn-submit:hover, .c-btn-submit:active {
+  background-color: #c12c2f;
+}
+.c-btn-submit:disabled {
+  border-color: #EDEDED;
+  background-color: transparent;
+}
+.c-btn-submit:disabled .icon {
+  color: #EDEDED;
+}
+
+.c-link {
+  font-size: 0.6rem;
+  color: #B2B2B2;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.c-link:hover {
+  color: #222;
+}
+
+/*# sourceMappingURL=main.css.map */

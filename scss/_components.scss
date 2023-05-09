@@ -1,0 +1,197 @@
+
+@use 'variables' as *;
+
+.c-toggle-profile-navbar {
+    position: absolute;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 14px;
+    border: 1px solid #3333;
+    top: 24px;
+    right: 32px;
+    background-color: rgba(255, 255, 255, 0.089);
+
+    .icon {
+        margin-top: 2px;
+        width: 24px;
+    }
+}
+
+.c-logo {
+    width: 96px;
+    margin-bottom: 48px;
+}
+
+.c-form-title {
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.c-user-credentials-field {
+    position: relative;
+    background-color: red;
+
+    span {
+        position: absolute;
+        top: -2px;
+        left: 16px;
+        text-transform: uppercase;
+        font-size: .6rem;
+        font-weight: 700;
+        color: map-get($colors, 'dark-gray');
+        transition: .1s;
+    }
+
+    input {
+        border: 1px solid transparent;
+        border-radius: 4px;
+        width: 100%;
+        padding: 6px;
+        padding-top: 20px;
+        font-size: .8rem;
+        font-weight: 600;
+        color: #333;
+        letter-spacing: .5px;
+        outline: none;
+        background-color: map-get($colors, 'light-gray');
+        margin-bottom: 12px;
+
+        &:focus ~ span, &:valid ~ span {
+            top: -12px;
+            left: 6px;
+        }
+    }
+}
+
+.c-button-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+    background-color: chocolate;
+    border: 1px solid #3333;
+
+    .icon {
+        width: 14px;
+    }
+
+    &--facebook {
+        background-color: map-get($colors, 'facebook-color');
+
+        &:hover {
+            background-color: darken(map-get($colors, 'facebook-color'), 10);
+        }
+    }
+
+    &--google {
+        background-color: map-get($colors, 'google-color');
+
+        &:hover {
+            background-color: darken(map-get($colors, 'google-color'), 5);
+        }
+    }
+
+    &--apple {
+        background-color: map-get($colors, 'apple-color');
+        .icon {
+            width: 13px;
+        }
+
+        &:hover {
+            background-color: lighten(map-get($colors, 'apple-color'), 15);
+        }
+    }
+
+    &--xbox {
+        background-color: map-get($colors, 'xbox-color');
+
+        &:hover {
+            background-color: darken(map-get($colors, 'xbox-color'), 10);
+        }
+    }
+}
+
+.c-wallpaper {
+    flex: 1;
+    background: {
+        image: url('../Images/wallpaper-login-lol.jpg');
+        size: cover;
+        position: center;
+    };
+}
+
+.c-input-checkbox-field {
+    font-size: .8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    input {
+        appearance: none;
+        width: 13px;
+        height: 13px;
+        border-radius: 2px;
+        cursor: pointer;
+        position: relative;
+        background-color: map-get($colors, 'light-gray');
+
+        &:checked {
+            background-color: map-get($colors, 'riot-color');
+        }
+
+        &:checked::after {
+            content: "";
+            position: absolute;
+            top: 1px;
+            left: 4px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            width: 3px;
+            height: 7px;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.c-btn-submit {
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 6px 8px;
+    border-radius: 16px;
+    background-color: map-get($colors, 'riot-color');
+
+    .icon {
+        display: block;
+        font-size: 32px;
+        color: white;
+    }
+
+    &:hover, &:active {
+        background-color: darken(map-get($colors, 'riot-color'), 5);
+    }
+
+    &:disabled {
+        border-color: map-get($colors, 'light-gray');
+        background-color: transparent;
+
+        .icon {
+            color: map-get($colors, 'light-gray');
+        }
+    }
+}
+
+.c-link {
+    font-size: .6rem;
+    color: map-get($colors, 'medium-gray');
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .5px;
+
+    &:hover {
+        color: #222;
+    }
+}

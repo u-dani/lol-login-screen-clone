@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in League of Legends</title>
+
+    <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script defer type="module" src="js/script.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 48
+        }
+    </style>
+
+</head>
+<body>
+    <div class="l-page">
+
+        <div class="c-toggle-profile-navbar">
+            <img class="icon" src="Images/perfil-icone.png" alt="Perfil" />
+        </div>
+
+        <nav class="l-profile-navbar">
+            <ul>
+                <li>
+                    <a class="link" href="#">Settings</a>
+                </li>
+                <li>
+                    <a class="link" href="#">Sign out</a>
+                </li>
+                <li>
+                    <a class="link" href="#">Exit</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="l-sign-in-container">
+
+            <img class="c-logo" src="Images/logo-riot-games.png" alt="Logo Riot Games" />
+
+            <h1 class="c-form-title">Sign in</h1>
+            <form class="l-sign-in-form">
+                <fieldset class="l-user-credentials-container">
+                    <label for="iuser" class="c-user-credentials-field">
+                        <input type="text" name="username" id="iuser" required />
+                        <span>Username</span>
+                    </label>
+                    <label for="ipassword" class="c-user-credentials-field">
+                        <input type="password" name="password" id="ipassword" required />
+                        <span>Password</span>
+                    </label>
+                </fieldset>
+
+                <fieldset class="l-more-login-options">
+                    <a href="#" class="c-button-link c-button-link--facebook">
+                        <img class="icon" src="Images/facebook-logo.png" alt="Facebook Logo" />
+                    </a>
+                    <a href="#" class="c-button-link c-button-link--google">
+                        <img class="icon" src="Images/google-logo.png" alt="Google Logo" />
+                    </a>
+                    <a href="#" class="c-button-link c-button-link--apple">
+                        <img class="icon" src="Images/apple-logo.png" alt="Apple Logo" />
+                    </a>
+                    <a href="#" class="c-button-link c-button-link--xbox">
+                        <img class="icon" src="Images/xbox-logo.png" alt="Xbox Logo" />
+                    </a>
+                </fieldset>
+
+                <fieldset class="l-checkbox-container">
+                    <label for="i-stay-signed-in" class="c-input-checkbox-field">
+                        <input type="checkbox" name="stay-signed-in" id="i-stay-signed-in" class="c-input-checkbox" />
+                        <span>Stay signed in</span>
+                    </label>
+                </fieldset>
+
+                <button class="c-btn-submit l-btn-submit" type="submit" disabled>
+                    <span class="material-symbols-outlined icon">arrow_right_alt</span>
+                </button>
+            </form>
+
+            <div class="l-link-container">
+                <a href="#" class="c-link">Can't Sign in?</a>
+                <a href="#" class="c-link">Create Account</a>
+            </div>
+        </main>
+
+        <aside class="c-wallpaper"></aside>
+    </div>
+</body>
+</html>
