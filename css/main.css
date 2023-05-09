@@ -22,7 +22,7 @@ fieldset {
 }
 
 .l-profile-navbar {
-  display: none;
+  display: block;
   position: absolute;
   background-color: #211F1F;
   top: 24px;
@@ -44,6 +44,9 @@ fieldset {
 .l-profile-navbar .link:hover {
   background-color: rgba(51, 51, 51, 0.2);
   color: white;
+}
+.l-profile-navbar.is-hide {
+  display: none;
 }
 
 .l-sign-in-container {
