@@ -28,7 +28,6 @@
 }
 
 .c-user-credentials-field {
-    background-color: red;
     position: relative;
 
     span {
@@ -52,8 +51,7 @@
         letter-spacing: .5px;
         margin-bottom: 12px;
         outline: none;
-        padding-top: 20px;
-        padding: 6px;
+        padding: 20px 6px 6px;
         width: 100%;
 
         &:focus ~ span, &:valid ~ span {
@@ -144,8 +142,8 @@
         }
 
         &:checked::after {
-            border-width: 0 2px 2px 0;
             border: solid #fff;
+            border-width: 0 2px 2px 0;
             content: "";
             height: 7px;
             left: 4px;
@@ -165,9 +163,9 @@
     padding: 6px 8px;
 
     .icon {
-        color: white;
         display: block;
         font-size: 32px;
+        color: white;
     }
 
     &:hover, &:active {

@@ -139,8 +139,7 @@ fieldset {
   letter-spacing: 0.5px;
   margin-bottom: 12px;
   outline: none;
-  padding-top: 20px;
-  padding: 6px;
+  padding: 20px 6px 6px;
   width: 100%;
 }
 .c-user-credentials-field input:focus ~ span, .c-user-credentials-field input:valid ~ span {
@@ -217,8 +216,8 @@ fieldset {
   background-color: #D13639;
 }
 .c-input-checkbox-field input:checked::after {
-  border-width: 0 2px 2px 0;
   border: solid #fff;
+  border-width: 0 2px 2px 0;
   content: "";
   height: 7px;
   left: 4px;
@@ -236,9 +235,9 @@ fieldset {
   padding: 6px 8px;
 }
 .c-btn-submit .icon {
-  color: white;
   display: block;
   font-size: 32px;
+  color: white;
 }
 .c-btn-submit:hover, .c-btn-submit:active {
   background-color: #c12c2f;
