@@ -3,30 +3,30 @@
 
 .l-page {
     background-color: map-get($colors, 'background');
+    display: flex;
     height: 100vh;
     min-height: 500px;
-    display: flex;
 }
 
 .l-profile-navbar {
-    display: block;
-    position: absolute;
     background-color: map-get($colors, 'profile-navbar-background');
-    top: 24px;
-    right: 88px;
-    padding: 16px;
     border-radius: 4px;
+    display: block;
+    padding: 16px;
+    position: absolute;
+    right: 88px;
+    top: 24px;
     
     .link {
-        min-width: 160px;
+        border-radius: 4px;
+        color: map-get($colors, 'medium-gray');
         display: block;
         font-size: .75rem;
         font-weight: 600;
-        text-transform: uppercase;
-        color: map-get($colors, 'medium-gray');
-        padding: 8px;
-        border-radius: 4px;
         letter-spacing: .8px;
+        min-width: 160px;
+        padding: 8px;
+        text-transform: uppercase;
 
         &:hover {
             background-color: #3333;
@@ -40,12 +40,12 @@
 }
 
 .l-sign-in-container {
-    position: relative;
-    max-width: 344px;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    max-width: 344px;
     padding: 48px;
+    position: relative;
 }
 
 .l-sign-in-form {
@@ -65,17 +65,17 @@
 }
 
 .l-btn-submit {
-    position: absolute;
-    left: 50%;
     bottom: 80px;
+    left: 50%;
+    position: absolute;
     transform: translateX(-50%);
 }
 
 .l-link-container {
+    bottom: 24px;
     display: flex;
     flex-direction: column;
-    text-align: center;
     gap: 4px;
     position: absolute;
-    bottom: 24px;
+    text-align: center;
 }
