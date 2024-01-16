@@ -1,33 +1,16 @@
-
 @use 'variables' as *;
-
-.c-toggle-profile-navbar {
-    background-color: rgba(255, 255, 255, 0.089);
-    border-radius: 14px;
-    border: 1px solid #3333;
-    cursor: pointer;
-    padding: 5px 8px;
-    position: absolute;
-    right: 32px;
-    top: 24px;
-
-    .icon {
-        margin-top: 2px;
-        width: 24px;
-    }
-}
 
 .c-logo {
     margin-bottom: 48px;
     width: 96px;
 }
 
-.c-form-title {
+.c-title {
     color: #222;
     font-size: 1.2rem;
 }
 
-.c-user-credentials-field {
+.c-text-input-field {
     position: relative;
 
     span {
@@ -61,7 +44,7 @@
     }
 }
 
-.c-button-link {
+.c-btn {
     align-items: center;
     background-color: chocolate;
     border-radius: 4px;
@@ -112,16 +95,7 @@
     }
 }
 
-.c-wallpaper {
-    flex: 1;
-    background: {
-        image: url('../Images/wallpaper-login-lol.jpg');
-        position: center;
-        size: cover;
-    };
-}
-
-.c-input-checkbox-field {
+.c-checkbox-input-field {
     align-items: center;
     display: flex;
     font-size: .8rem;
@@ -155,33 +129,6 @@
     }
 }
 
-.c-btn-submit {
-    background-color: map-get($colors, 'riot-color');
-    border-radius: 16px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    padding: 6px 8px;
-
-    .icon {
-        display: block;
-        font-size: 32px;
-        color: white;
-    }
-
-    &:hover, &:active {
-        background-color: darken(map-get($colors, 'riot-color'), 5);
-    }
-
-    &:disabled {
-        background-color: transparent;
-        border-color: map-get($colors, 'light-gray');
-
-        .icon {
-            color: map-get($colors, 'light-gray');
-        }
-    }
-}
-
 .c-link {
     color: map-get($colors, 'medium-gray');
     font-size: .6rem;
@@ -192,4 +139,29 @@
     &:hover {
         color: #222;
     }
+}
+
+.c-toggle-navigation {
+    background-color: rgba(255, 255, 255, 0.089);
+    border-radius: 14px;
+    border: 1px solid #3333;
+    cursor: pointer;
+    padding: 5px 8px;
+    position: absolute;
+    right: 32px;
+    top: 24px;
+
+    .icon {
+        margin-top: 2px;
+        width: 24px;
+    }
+}
+
+.c-wallpaper {
+    flex: 1;
+    background: {
+        image: url('../Images/wallpaper-login-lol.jpg');
+        position: center;
+        size: cover;
+    };
 }
