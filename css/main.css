@@ -7,49 +7,30 @@
 }
 
 html, body {
-  font-family: "Montserrat", sans-serif;
+  font-family: sans-serif;
+  display: flex;
+  min-height: 100vh;
+  height: 100vh;
 }
 
 fieldset {
   border: none;
 }
 
-.l-page {
-  background-color: #F9F9F9;
+.l-content {
   display: flex;
-  height: 100vh;
-  min-height: 500px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F9F9F9;
+  max-width: 440px;
+  width: 100%;
 }
 
-.l-profile-navbar {
-  background-color: #211F1F;
-  border-radius: 4px;
-  display: block;
-  padding: 16px;
-  position: absolute;
-  right: 88px;
-  top: 24px;
-}
-.l-profile-navbar .link {
-  border-radius: 4px;
-  color: #B2B2B2;
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.8px;
-  min-width: 160px;
-  padding: 8px;
-  text-transform: uppercase;
-}
-.l-profile-navbar .link:hover {
-  background-color: rgba(51, 51, 51, 0.2);
-  color: white;
-}
-.l-profile-navbar.is-hide {
-  display: none;
+.l-form {
+  margin-top: 24px;
 }
 
-.l-sign-in-container {
+.l-credential-container {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -58,11 +39,7 @@ fieldset {
   position: relative;
 }
 
-.l-sign-in-form {
-  margin-top: 24px;
-}
-
-.l-more-login-options {
+.l-other-login-options {
   display: flex;
   gap: 6px;
   margin: 8px 0 14px;
@@ -74,14 +51,7 @@ fieldset {
   gap: 4px;
 }
 
-.l-btn-submit {
-  bottom: 80px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-}
-
-.l-link-container {
+.l-footer {
   bottom: 24px;
   display: flex;
   flex-direction: column;
@@ -90,36 +60,48 @@ fieldset {
   text-align: center;
 }
 
-.c-toggle-profile-navbar {
-  background-color: rgba(255, 255, 255, 0.089);
-  border-radius: 14px;
-  border: 1px solid rgba(51, 51, 51, 0.2);
-  cursor: pointer;
-  padding: 5px 8px;
+.l-profile-navigation {
+  background-color: #211F1F;
+  border-radius: 4px;
+  display: block;
+  padding: 16px;
   position: absolute;
-  right: 32px;
+  right: 88px;
   top: 24px;
 }
-.c-toggle-profile-navbar .icon {
-  margin-top: 2px;
-  width: 24px;
+.l-profile-navigation .link {
+  border-radius: 4px;
+  color: #B2B2B2;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  min-width: 160px;
+  padding: 8px;
+  text-transform: uppercase;
+}
+.l-profile-navigation .link:hover {
+  background-color: rgba(51, 51, 51, 0.2);
+  color: white;
+}
+.l-profile-navigation.is-hide {
+  display: none;
 }
 
 .c-logo {
   margin-bottom: 48px;
-  width: 96px;
+  width: 108px;
 }
 
-.c-form-title {
+.c-title {
   color: #222;
   font-size: 1.2rem;
 }
 
-.c-user-credentials-field {
-  background-color: red;
+.c-text-input-field {
   position: relative;
 }
-.c-user-credentials-field span {
+.c-text-input-field span {
   color: #868686;
   font-size: 0.6rem;
   font-weight: 700;
@@ -129,7 +111,7 @@ fieldset {
   top: -2px;
   transition: 0.1s;
 }
-.c-user-credentials-field input {
+.c-text-input-field input {
   background-color: #EDEDED;
   border-radius: 4px;
   border: 1px solid transparent;
@@ -142,12 +124,12 @@ fieldset {
   padding: 20px 6px 6px;
   width: 100%;
 }
-.c-user-credentials-field input:focus ~ span, .c-user-credentials-field input:valid ~ span {
+.c-text-input-field input:focus ~ span, .c-text-input-field input:valid ~ span {
   left: 6px;
   top: -12px;
 }
 
-.c-button-link {
+.c-btn {
   align-items: center;
   background-color: chocolate;
   border-radius: 4px;
@@ -158,53 +140,48 @@ fieldset {
   justify-content: center;
   padding: 6px 8px;
 }
-.c-button-link .icon {
+.c-btn .icon {
   width: 14px;
 }
-.c-button-link--facebook {
+.c-btn--facebook {
   background-color: #1877f2;
 }
-.c-button-link--facebook:hover {
+.c-btn--facebook:hover {
   background-color: #0b5fcc;
 }
-.c-button-link--google {
+.c-btn--google {
   background-color: #fff;
 }
-.c-button-link--google:hover {
+.c-btn--google:hover {
   background-color: #f2f2f2;
 }
-.c-button-link--apple {
+.c-btn--apple {
   background-color: #000;
 }
-.c-button-link--apple .icon {
+.c-btn--apple .icon {
   width: 13px;
 }
-.c-button-link--apple:hover {
+.c-btn--apple:hover {
   background-color: #262626;
 }
-.c-button-link--xbox {
+.c-btn--xbox {
   background-color: #107C10;
 }
-.c-button-link--xbox:hover {
+.c-btn--xbox:hover {
   background-color: #0a4f0a;
 }
 
-.c-wallpaper {
-  flex: 1;
-  background-image: url("../Images/wallpaper-login-lol.jpg");
-  background-position: center;
-  background-size: cover;
-}
-
-.c-input-checkbox-field {
+.c-checkbox-input-field {
   align-items: center;
   display: flex;
   font-size: 0.8rem;
   font-weight: 500;
   gap: 4px;
 }
-.c-input-checkbox-field input {
-  appearance: none;
+.c-checkbox-input-field input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #EDEDED;
   border-radius: 2px;
   cursor: pointer;
@@ -212,10 +189,10 @@ fieldset {
   position: relative;
   width: 13px;
 }
-.c-input-checkbox-field input:checked {
+.c-checkbox-input-field input:checked {
   background-color: #D13639;
 }
-.c-input-checkbox-field input:checked::after {
+.c-checkbox-input-field input:checked::after {
   border: solid #fff;
   border-width: 0 2px 2px 0;
   content: "";
@@ -225,29 +202,6 @@ fieldset {
   top: 1px;
   transform: rotate(45deg);
   width: 3px;
-}
-
-.c-btn-submit {
-  background-color: #D13639;
-  border-radius: 16px;
-  border: 1px solid transparent;
-  cursor: pointer;
-  padding: 6px 8px;
-}
-.c-btn-submit .icon {
-  display: block;
-  font-size: 32px;
-  color: white;
-}
-.c-btn-submit:hover, .c-btn-submit:active {
-  background-color: #c12c2f;
-}
-.c-btn-submit:disabled {
-  background-color: transparent;
-  border-color: #EDEDED;
-}
-.c-btn-submit:disabled .icon {
-  color: #EDEDED;
 }
 
 .c-link {
@@ -261,4 +215,23 @@ fieldset {
   color: #222;
 }
 
-/*# sourceMappingURL=main.css.map */
+.c-toggle-navigation {
+  background-color: rgba(255, 255, 255, 0.089);
+  border-radius: 14px;
+  border: 1px solid rgba(51, 51, 51, 0.2);
+  cursor: pointer;
+  padding: 5px 8px;
+  position: absolute;
+  right: 32px;
+  top: 24px;
+}
+.c-toggle-navigation .icon {
+  margin-top: 2px;
+  width: 24px;
+}
+
+.c-wallpaper {
+  background-image: url("../images/wallpaper-login-lol.jpg");
+  background-position: center;
+  background-size: cover;
+}/*# sourceMappingURL=main.css.map */
