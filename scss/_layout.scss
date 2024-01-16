@@ -1,14 +1,51 @@
-
 @use 'variables' as *;
 
-.l-page {
+.l-content {
     background-color: map-get($colors, 'background');
     display: flex;
     height: 100vh;
     min-height: 500px;
 }
 
-.l-profile-navbar {
+.l-form {
+    margin-top: 24px;
+}
+
+.l-credential-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 344px;
+    padding: 48px;
+    position: relative;
+}
+
+.l-other-login-options {
+    display: flex;
+    gap: 6px;
+    margin: 8px 0 14px;
+}
+
+.l-checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.l-footer {
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: absolute;
+    text-align: center;
+}
+
+.l-navigation-container {
+
+}
+
+.l-profile-navigation {
     background-color: map-get($colors, 'profile-navbar-background');
     border-radius: 4px;
     display: block;
@@ -39,43 +76,8 @@
     }
 }
 
-.l-sign-in-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    max-width: 344px;
-    padding: 48px;
-    position: relative;
-}
 
-.l-sign-in-form {
-    margin-top: 24px;
-}
 
-.l-more-login-options {
-    display: flex;
-    gap: 6px;
-    margin: 8px 0 14px;
-}
 
-.l-checkbox-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
 
-.l-btn-submit {
-    bottom: 80px;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-}
 
-.l-link-container {
-    bottom: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    position: absolute;
-    text-align: center;
-}
