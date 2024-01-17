@@ -17,3 +17,7 @@ html, body {
 fieldset {
     border: none;
 }
+
+::-ms-reveal {
+    display: none;
+}
