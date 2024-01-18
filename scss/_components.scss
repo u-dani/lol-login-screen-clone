@@ -16,16 +16,24 @@
 
 .c-text-input-field {
     position: relative;
+    border: 2.5px solid transparent;
+    background-color: #EDEDED;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    padding: 8px;
+    gap: 4px;
+    cursor: text;
 
     span {
-        color: map-get($colors, 'dark-gray');
-        font-size: .6rem;
-        font-weight: 700;
-        left: 16px;
         position: absolute;
-        text-transform: uppercase;
-        top: -2px;
-        transition: .1s;
+        color: map-get($colors, 'dark-gray');
+        font-size: .8rem;
+        font-weight: 700;
+        top: 50%;
+        left: 16px;
+        transform: translateY(-50%);
+        transition: 200ms ease;
     }
 
     input {
@@ -33,18 +41,28 @@
         border-radius: 4px;
         border: 1px solid transparent;
         color: #333;
-        font-size: .8rem;
+        font-size: 1rem;
         font-weight: 600;
         letter-spacing: .5px;
-        margin-bottom: 12px;
+        padding-top: 16px;
         outline: none;
-        padding: 20px 6px 6px;
         width: 100%;
 
         &:focus ~ span, &:valid ~ span {
             left: 6px;
             top: -12px;
         }
+    }
+
+    .btn-icon {
+        border: none;
+        padding: 4px;
+    }
+
+    .btn-icon img, .btn-icon svg {
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
     }
 }
 
