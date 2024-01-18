@@ -55,14 +55,29 @@
     }
 
     .btn-icon {
+        display: none;
         border: none;
-        padding: 4px;
+        padding: 4px;   
     }
 
     .btn-icon img, .btn-icon svg {
         width: 20px;
         height: 20px;
         vertical-align: middle;
+    }
+
+    &:focus-within {
+        border-color: black;
+
+        .btn-icon {
+            display: block;
+        }
+    }
+
+    &:has(input:not(:placeholder-shown)) > span, &:focus-within > span {
+        top: 12px;
+        left: 8px;
+        font-size: 0.7rem;
     }
 }
 
