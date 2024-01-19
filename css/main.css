@@ -1,9 +1,9 @@
 * {
-  box-sizing: border-box;
-  list-style-type: none;
   margin: 0;
   padding: 0;
+  list-style-type: none;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -11,32 +11,46 @@ html, body {
   display: flex;
   min-height: 100vh;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 fieldset {
   border: none;
 }
 
+button {
+  cursor: pointer;
+}
+
+::-ms-reveal {
+  display: none;
+}
+
+@font-face {
+  font-family: "Spiegel";
+  font-weight: bolder;
+  src: url("../fonts/Spiegel_TT_Bold.ttf") format("truetype"), url("../fonts/Spiegel_TT_Bold.otf") format("opentype");
+}
 .l-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #F9F9F9;
-  max-width: 440px;
+  max-width: 420px;
   width: 100%;
+  padding: 48px;
 }
 
 .l-form {
   margin-top: 24px;
+  width: 100%;
 }
 
 .l-credential-container {
-  align-items: center;
   display: flex;
   flex-direction: column;
-  max-width: 344px;
-  padding: 48px;
-  position: relative;
+  align-items: center;
+  gap: 16px;
 }
 
 .l-other-login-options {
@@ -94,40 +108,76 @@ fieldset {
 }
 
 .c-title {
-  color: #222;
-  font-size: 1.2rem;
+  font-family: "Spiegel", monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.025em;
+  line-height: 2.4rem;
   text-align: center;
 }
 
 .c-text-input-field {
   position: relative;
+  display: flex;
+  gap: 4px;
+  background-color: #EDEDED;
+  border-radius: 8px;
+  border: 2.5px solid transparent;
+  padding: 8px;
+  width: 100%;
+  cursor: text;
 }
 .c-text-input-field span {
-  color: #868686;
-  font-size: 0.6rem;
-  font-weight: 700;
-  left: 16px;
   position: absolute;
-  text-transform: uppercase;
-  top: -2px;
-  transition: 0.1s;
+  top: 50%;
+  left: 16px;
+  color: #868686;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transform: translateY(-50%);
+  transition: 200ms ease;
 }
 .c-text-input-field input {
   background-color: #EDEDED;
   border-radius: 4px;
   border: 1px solid transparent;
   color: #333;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.5px;
-  margin-bottom: 12px;
   outline: none;
-  padding: 20px 6px 6px;
+  padding-top: 16px;
   width: 100%;
 }
 .c-text-input-field input:focus ~ span, .c-text-input-field input:valid ~ span {
-  left: 6px;
   top: -12px;
+  left: 6px;
+}
+.c-text-input-field .btn-icon {
+  display: none;
+  border: none;
+  padding: 4px;
+}
+.c-text-input-field .btn-icon img, .c-text-input-field .btn-icon svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+.c-text-input-field:focus-within {
+  border-color: black;
+}
+.c-text-input-field:focus-within .btn-icon {
+  display: block;
+}
+.c-text-input-field:has(input:not(:-moz-placeholder-shown)) > span {
+  top: 12px;
+  left: 8px;
+  font-size: 0.7rem;
+}
+.c-text-input-field:has(input:not(:placeholder-shown)) > span, .c-text-input-field:focus-within > span {
+  top: 12px;
+  left: 8px;
+  font-size: 0.7rem;
 }
 
 .c-btn {
@@ -235,4 +285,15 @@ fieldset {
   background-image: url("../images/wallpaper-login-lol.jpg");
   background-position: center;
   background-size: cover;
+}
+
+.is-visually-hidden {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }/*# sourceMappingURL=main.css.map */
