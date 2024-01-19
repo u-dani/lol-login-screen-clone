@@ -7,14 +7,14 @@
 }
 
 $colors: (
-    'apple-color': #000,
-    'background': #F9F9F9,
-    'dark-gray': #868686,
-    'facebook-color': #1877f2,
-    'google-color': #fff,
-    'light-gray': #EDEDED,
-    'medium-gray': #B2B2B2,
-    'profile-navbar-background': #211F1F,
-    'riot-color': #D13639,
-    'xbox-color': #107C10,
+    bgcolor: #F9F9F9,
+    facebook: #1877F2,
+    xbox: #107C10,
+
+    highlight: #D13639,
+    highlight-dark: #BC252A,
+
+    error: #BE29CC,
+    error-light: #E9BEEE,
+    error-lighter: #F3E3F5,
 )
