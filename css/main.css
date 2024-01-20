@@ -7,7 +7,7 @@
 }
 
 html, body {
-  font-family: sans-serif;
+  font-family: "Spiegel", sans-serif;
   display: flex;
   min-height: 100vh;
   height: 100vh;
@@ -35,9 +35,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F9F9F9;
-  max-width: 420px;
-  width: 100%;
+  width: 420px;
   padding: 48px;
 }
 
@@ -56,7 +54,8 @@ button {
 .l-other-login-options {
   display: flex;
   gap: 6px;
-  margin: 8px 0 14px;
+  margin: 24px 0 14px;
+  background: darkblue;
 }
 
 .l-checkbox-container {
@@ -75,7 +74,6 @@ button {
 }
 
 .l-profile-navigation {
-  background-color: #211F1F;
   border-radius: 4px;
   display: block;
   padding: 16px;
@@ -85,7 +83,6 @@ button {
 }
 .l-profile-navigation .link {
   border-radius: 4px;
-  color: #B2B2B2;
   display: block;
   font-size: 0.75rem;
   font-weight: 600;
@@ -123,7 +120,7 @@ button {
   background-color: #EDEDED;
   border-radius: 8px;
   border: 2.5px solid transparent;
-  padding: 8px;
+  padding: 6px 8px;
   width: 100%;
   cursor: text;
 }
@@ -131,14 +128,13 @@ button {
   position: absolute;
   top: 50%;
   left: 16px;
-  color: #868686;
   font-size: 0.8rem;
   font-weight: 700;
   transform: translateY(-50%);
   transition: 200ms ease;
 }
 .c-text-input-field input {
-  background-color: #EDEDED;
+  background-color: transparent;
   border-radius: 4px;
   border: 1px solid transparent;
   color: #333;
@@ -194,34 +190,9 @@ button {
 .c-btn .icon {
   width: 14px;
 }
-.c-btn--facebook {
-  background-color: #1877f2;
-}
-.c-btn--facebook:hover {
-  background-color: #0b5fcc;
-}
-.c-btn--google {
-  background-color: #fff;
-}
-.c-btn--google:hover {
-  background-color: #f2f2f2;
-}
-.c-btn--apple {
-  background-color: #000;
-}
 .c-btn--apple .icon {
   width: 13px;
 }
-.c-btn--apple:hover {
-  background-color: #262626;
-}
-.c-btn--xbox {
-  background-color: #107C10;
-}
-.c-btn--xbox:hover {
-  background-color: #0a4f0a;
-}
-
 .c-checkbox-input-field {
   align-items: center;
   display: flex;
@@ -233,15 +204,11 @@ button {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-color: #EDEDED;
   border-radius: 2px;
   cursor: pointer;
   height: 13px;
   position: relative;
   width: 13px;
-}
-.c-checkbox-input-field input:checked {
-  background-color: #D13639;
 }
 .c-checkbox-input-field input:checked::after {
   border: solid #fff;
@@ -256,7 +223,6 @@ button {
 }
 
 .c-link {
-  color: #B2B2B2;
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.5px;
