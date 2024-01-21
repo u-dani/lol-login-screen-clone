@@ -17,10 +17,11 @@
 .c-text-input-field {
     position: relative;
     display: flex;
+    align-items: center;
     gap: 4px;
-    background-color: #EDEDED;
+    background-color: map-get(var.$colors, gray-50);;
     border-radius: 8px;
-    border: 2.5px solid transparent;
+    border: 3px solid transparent;
     padding: 6px 8px;
     width: 100%;
     cursor: text;
@@ -29,7 +30,7 @@
         position: absolute;
         top: 50%;
         left: 16px;
-        // color: map-get($colors, 'dark-gray');
+        color: map-get(var.$colors, gray-400);
         font-size: .8rem;
         font-weight: 700;
         transform: translateY(-50%);
@@ -40,41 +41,44 @@
         background-color: transparent;
         border-radius: 4px;
         border: 1px solid transparent;
-        color: #333;
+        color: map-get(var.$colors, gray-600);;
         font-size: 1rem;
         font-weight: 600;
         letter-spacing: .5px;
         outline: none;
         padding-top: 16px;
         width: 100%;
-
-        &:focus ~ span, &:valid ~ span {
-            top: -12px;
-            left: 6px;
-        }
     }
 
     .btn-icon {
         display: none;
+        background: transparent ;
+        height: max-content;
         border: none;
-        padding: 4px;   
-    }
+        padding: 4px;
 
-    .btn-icon img, .btn-icon svg {
-        width: 20px;
-        height: 20px;
-        vertical-align: middle;
-    }
+        img, svg {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
 
-    &:focus-within {
-        border-color: black;
-
-        .btn-icon {
-            display: block;
+        &:focus-visible  {           
+            outline: 3px solid map-get(var.$colors, gray-600);
+            border-radius: 3px;
         }
     }
 
-    &:has(input:not(:placeholder-shown)) > span, &:focus-within > span {
+    &:has(input:focus) {
+        border-color: map-get(var.$colors, gray-600);
+        background: transparent;
+    }
+
+    &:focus-within .btn-icon {
+        display: block;
+    }
+
+    &:has(input:not(:placeholder-shown)) > span, &:has(input:focus) > span {
         top: 12px;
         left: 8px;
         font-size: 0.7rem;
