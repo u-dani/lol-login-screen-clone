@@ -6,7 +6,7 @@
 }
 
 .c-title {
-    font-family: 'Spiegel', monospace;
+    color: map-get(var.$colors, gray-900);
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 0.025em;
@@ -127,16 +127,11 @@
 
     input {
         appearance: none;
-        // background-color: map-get($colors, 'light-gray');
         border-radius: 2px;
         cursor: pointer;
         height: 13px;
         position: relative;
         width: 13px;
-
-        &:checked {
-            // background-color: map-get($colors, 'riot-color');
-        }
 
         &:checked::after {
             border: solid #fff;
@@ -153,7 +148,6 @@
 }
 
 .c-link {
-    // color: map-get($colors, 'medium-gray');
     font-size: .6rem;
     font-weight: 700;
     letter-spacing: .5px;
