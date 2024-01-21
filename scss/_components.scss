@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use 'variables' as var;
 
 .c-logo {
     margin-bottom: 48px;
@@ -94,6 +94,22 @@
         width: 21px;
         height: 21px;
     }
+
+    &--facebook {
+        background: map-get(var.$colors, facebook);
+    }
+
+    &--google {
+        background: white;
+    }
+
+    &--apple {
+        background: black;
+    }
+
+    &--xbox {
+        background: map-get(var.$colors, xbox);
+    }
 }
 
 .c-checkbox-input-field {
@@ -131,7 +147,7 @@
 }
 
 .c-link {
-    color: map-get($colors, 'medium-gray');
+    // color: map-get($colors, 'medium-gray');
     font-size: .6rem;
     font-weight: 700;
     letter-spacing: .5px;
