@@ -1,9 +1,10 @@
-@use 'variables' as *;
+@use 'variables' as var;
 
 .l-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: map-get(var.$colors, bgcolor);
     width: 456px;
     padding: 48px;
 }
