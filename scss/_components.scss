@@ -89,6 +89,7 @@
     padding: 6px;
     border: 3px solid transparent;
     border-radius: 4px;
+    width: 100%;
 
     .icon {
         width: 21px;
@@ -96,19 +97,24 @@
     }
 
     &--facebook {
-        background: map-get(var.$colors, facebook);
+        background-color: map-get(var.$colors, facebook);
+        border-color: darken(map-get(var.$colors, facebook), 5);
+        
     }
 
     &--google {
-        background: white;
+        background-color: white;
+        border-color: darken(white, 5);
     }
 
     &--apple {
-        background: black;
+        background-color: black;
+        border-color: darken(black, 5);
     }
 
     &--xbox {
-        background: map-get(var.$colors, xbox);
+        background-color: map-get(var.$colors, xbox);
+        border-color: darken(map-get(var.$colors, xbox), 5)
     }
 }
 
