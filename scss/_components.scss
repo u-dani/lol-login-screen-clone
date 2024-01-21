@@ -82,53 +82,17 @@
 }
 
 .c-btn {
-    align-items: center;
-    background-color: chocolate;
-    border-radius: 4px;
-    border: 1px solid #3333;
-    cursor: pointer;
     display: flex;
-    flex: 1;
     justify-content: center;
-    padding: 6px 8px;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border: 3px solid transparent;
+    border-radius: 4px;
 
     .icon {
-        width: 14px;
-    }
-
-    &--facebook {
-        // background-color: map-get($colors, 'facebook-color');
-
-        &:hover {
-            // background-color: darken(map-get($colors, 'facebook-color'), 10);
-        }
-    }
-
-    &--google {
-        // background-color: map-get($colors, 'google-color');
-
-        &:hover {
-            // background-color: darken(map-get($colors, 'google-color'), 5);
-        }
-    }
-
-    &--apple {
-        // background-color: map-get($colors, 'apple-color');
-        .icon {
-            width: 13px;
-        }
-
-        &:hover {
-            // background-color: lighten(map-get($colors, 'apple-color'), 15);
-        }
-    }
-
-    &--xbox {
-        // background-color: map-get($colors, 'xbox-color');
-
-        &:hover {
-            // background-color: darken(map-get($colors, 'xbox-color'), 10);
-        }
+        width: 21px;
+        height: 21px;
     }
 }
 
