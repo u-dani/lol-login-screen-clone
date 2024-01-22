@@ -156,6 +156,18 @@
         height: 14px;
         width: 14px;
 
+        &:hover {
+            background: map-get(var.$colors, gray-200);
+        }
+
+        &:checked {
+            background: map-get(var.$colors, highlight);
+        }
+
+        &:checked:hover {
+            background: map-get(var.$colors, highlight-dark);
+        }
+
         &:checked::after {
             content: "";
             position: absolute;
