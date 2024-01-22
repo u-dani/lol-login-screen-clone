@@ -4,14 +4,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 60px;
     background-color: map-get(var.$colors, bgcolor);
-    width: 456px;
     padding: 48px;
+    width: 456px;
 }
 
 .l-form {
-    margin-top: 24px;
     width: 100%;
+    flex: 1;
 }
 
 .l-credential-container {
@@ -38,7 +39,6 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    position: absolute;
     text-align: center;
 }
 
