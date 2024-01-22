@@ -69,13 +69,13 @@
         }
     }
 
+    &:focus-within .btn-icon {
+        display: block;
+    }
+
     &:has(input:focus) {
         border-color: map-get(var.$colors, gray-600);
         background: transparent;
-    }
-
-    &:focus-within .btn-icon {
-        display: block;
     }
 
     &:has(input:not(:placeholder-shown)) > span, &:has(input:focus) > span {
@@ -91,7 +91,7 @@
     align-items: center;
     gap: 8px;
     padding: 6px;
-    border: 3px solid transparent;
+    border: 2px solid black;
     border-radius: 4px;
     width: 100%;
 
@@ -103,22 +103,43 @@
     &--facebook {
         background-color: map-get(var.$colors, facebook);
         border-color: darken(map-get(var.$colors, facebook), 5);
-        
+
+        &:hover {
+            background-color: darken(map-get(var.$colors, facebook), 5);
+        }
     }
 
     &--google {
         background-color: white;
         border-color: darken(white, 5);
+
+        &:hover {
+            border-color: map-get(var.$colors, gray-300);
+            background-color: darken(white, 5);
+        }
     }
 
     &--apple {
         background-color: black;
-        border-color: darken(black, 5);
+        border-color: lighten(black, 10);
+
+        &:hover {
+            background-color: lighten(black, 10);
+        }
     }
 
     &--xbox {
         background-color: map-get(var.$colors, xbox);
-        border-color: darken(map-get(var.$colors, xbox), 5)
+        border-color: darken(map-get(var.$colors, xbox), 5);
+
+        &:hover {
+            background-color: darken(map-get(var.$colors, xbox), 5);
+        }
+    }
+
+    &:focus-visible {
+        outline: 3px solid map-get(var.$colors, gray-900);
+        outline-offset: 3px;
     }
 }
 
