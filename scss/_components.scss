@@ -143,31 +143,37 @@
 }
 
 .c-checkbox-input-field {
-    align-items: center;
     display: flex;
-    font-size: .8rem;
-    font-weight: 500;
-    gap: 4px;
+    align-items: center;
+    gap: 6px;
 
     input {
         appearance: none;
-        border-radius: 2px;
-        cursor: pointer;
-        height: 13px;
         position: relative;
-        width: 13px;
+        background: map-get(var.$colors, gray-100);
+        border-radius: 3px;
+        cursor: pointer;
+        height: 14px;
+        width: 14px;
 
         &:checked::after {
-            border: solid #fff;
-            border-width: 0 2px 2px 0;
             content: "";
-            height: 7px;
-            left: 4px;
             position: absolute;
-            top: 1px;
-            transform: rotate(45deg);
+            top: 1.9px;
+            left: 4.6px;
+            border: 1px solid map-get(var.$colors, bgcolor);
+            border-width: 0 2px 2px 0;
             width: 3px;
+            height: 6px;
+            transform: rotate(45deg);
         }
+    }
+
+    span {
+        color: map-get(var.$colors, gray-800);
+        font-size: 0.825rem;
+        font-weight: 500;
+        letter-spacing: 0.025em;
     }
 }
 
