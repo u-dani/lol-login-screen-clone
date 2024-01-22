@@ -1,9 +1,25 @@
 @font-face {
     font-family: 'Spiegel';
-    font-weight: bolder;
+    font-weight: normal;
+    src: 
+        url('../fonts/Spiegel_TT_Regular.ttf') format('truetype'),
+        url('../fonts/Spiegel-Regular.otf') format("opentype");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: 500;
+    src: 
+        url('../fonts/Spiegel_TT_SemiBold.ttf') format('truetype'),
+        url('../fonts/Spiegel-SemiBold.otf') format("opentype");
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    font-weight: bold;
     src: 
         url('../fonts/Spiegel_TT_Bold.ttf') format('truetype'),
-        url('../fonts/Spiegel_TT_Bold.otf') format("opentype"),
+        url('../fonts/Spiegel_TT_Bold.otf') format("opentype");
 }
 
 $colors: (
