@@ -140,7 +140,6 @@
     }
 
     &--submit {
-        align-self: center;
         padding: 8px;
         border-radius: 21px;
         background-color: map-get(var.$colors, highlight);
