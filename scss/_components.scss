@@ -139,6 +139,25 @@
         }
     }
 
+    &--submit {
+        align-self: center;
+        padding: 8px;
+        border-radius: 21px;
+        background-color: map-get(var.$colors, highlight);
+        border: 2px solid map-get(var.$colors, highlight);
+        color: map-get(var.$colors, bgcolor);
+
+        .icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        &:hover {
+            background-color: map-get(var.$colors, highlight-dark);
+            border: 2px solid map-get(var.$colors, highlight-dark);
+        }
+    }
+
     &:focus-visible {
         outline: 3px solid map-get(var.$colors, gray-600);
         outline-offset: 3px;
