@@ -37,6 +37,13 @@
     margin-top: -8px;
 }
 
+.l-submit-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex: 1;
+}
+
 .l-footer {
     bottom: 24px;
     display: flex;
