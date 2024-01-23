@@ -92,11 +92,14 @@
     padding: 6px;
     border: 2px solid black;
     border-radius: 4px;
-    width: 100%;
 
     .icon {
         width: 21px;
         height: 21px;
+    }
+
+    &--full {
+        width: 100%;
     }
 
     &--facebook {
