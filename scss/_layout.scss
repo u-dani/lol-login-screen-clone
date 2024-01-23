@@ -46,11 +46,10 @@
 }
 
 .l-footer {
-    bottom: 24px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    text-align: center;
+    align-items: center;
+    gap: 6px;
 }
 
 // .l-navigation-container {
