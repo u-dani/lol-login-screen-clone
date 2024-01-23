@@ -18,9 +18,9 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    background-color: map-get(var.$colors, gray-50);;
-    border-radius: 8px;
+    background-color: map-get(var.$colors, gray-50);
     border: 3px solid transparent;
+    border-radius: 6px;
     padding: 6px 8px;
     width: 100%;
     cursor: text;
@@ -68,6 +68,10 @@
         }
     }
 
+    &:hover {
+        background-color: map-get(var.$colors, gray-100);
+    }
+
     &:focus-within .btn-icon {
         display: block;
     }
@@ -94,8 +98,8 @@
     border-radius: 4px;
 
     .icon {
-        width: 21px;
-        height: 21px;
+        width: 16px;
+        height: 16px;
     }
 
     &--full {
