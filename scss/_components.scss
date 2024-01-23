@@ -168,7 +168,8 @@
     display: flex;
     align-items: center;
     gap: 6px;
-
+    width: max-content;
+    
     input {
         appearance: none;
         position: relative;
