@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Spiegel";
+  font-weight: normal;
+  src: url("../fonts/Spiegel_TT_Regular.ttf") format("truetype"), url("../fonts/Spiegel-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Spiegel";
+  font-weight: 500;
+  src: url("../fonts/Spiegel_TT_SemiBold.ttf") format("truetype"), url("../fonts/Spiegel-SemiBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "Spiegel";
+  font-weight: bold;
+  src: url("../fonts/Spiegel_TT_Bold.ttf") format("truetype"), url("../fonts/Spiegel_TT_Bold.otf") format("opentype");
+}
 * {
   margin: 0;
   padding: 0;
@@ -26,19 +41,20 @@ button {
   display: none;
 }
 
-@font-face {
-  font-family: "Spiegel";
-  font-weight: bolder;
-  src: url("../fonts/Spiegel_TT_Bold.ttf") format("truetype"), url("../fonts/Spiegel_TT_Bold.otf") format("opentype");
+:focus-visible {
+  outline: 2px solid #333333;
+  outline-offset: 3px;
+  transition: 100ms;
 }
+
 .l-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 54px;
   background-color: #F9F9F9;
   padding: 48px;
-  width: 456px;
+  width: 400px;
 }
 
 .l-form {
@@ -64,15 +80,23 @@ button {
 .l-checkbox-container {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  margin-top: -8px;
+}
+
+.l-submit-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex: 1;
+  padding-top: 32px;
 }
 
 .l-footer {
-  bottom: 24px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  text-align: center;
+  align-items: center;
+  gap: 6px;
 }
 
 .l-profile-navigation {
@@ -191,11 +215,13 @@ button {
   padding: 6px;
   border: 2px solid black;
   border-radius: 4px;
-  width: 100%;
 }
 .c-btn .icon {
   width: 21px;
   height: 21px;
+}
+.c-btn--full {
+  width: 100%;
 }
 .c-btn--facebook {
   background-color: #1877F2;
@@ -226,48 +252,79 @@ button {
 .c-btn--xbox:hover {
   background-color: #0d650d;
 }
+.c-btn--submit {
+  padding: 8px;
+  border-radius: 21px;
+  background-color: #D13639;
+  border: 2px solid #D13639;
+  color: #F9F9F9;
+}
+.c-btn--submit .icon {
+  width: 48px;
+  height: 48px;
+}
+.c-btn--submit:hover {
+  background-color: #BC252A;
+  border: 2px solid #BC252A;
+}
 .c-btn:focus-visible {
-  outline: 3px solid #0A0A0A;
+  outline: 3px solid #333333;
   outline-offset: 3px;
 }
 
 .c-checkbox-input-field {
-  align-items: center;
   display: flex;
-  font-size: 0.8rem;
-  font-weight: 500;
-  gap: 4px;
+  align-items: center;
+  gap: 6px;
+  width: -moz-max-content;
+  width: max-content;
 }
 .c-checkbox-input-field input {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  border-radius: 2px;
-  cursor: pointer;
-  height: 13px;
   position: relative;
-  width: 13px;
+  background: #E8E8E8;
+  border-radius: 3px;
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+}
+.c-checkbox-input-field input:hover {
+  background: #B8B8B8;
+}
+.c-checkbox-input-field input:checked {
+  background: #D13639;
+}
+.c-checkbox-input-field input:checked:hover {
+  background: #BC252A;
 }
 .c-checkbox-input-field input:checked::after {
-  border: solid #fff;
-  border-width: 0 2px 2px 0;
   content: "";
-  height: 7px;
-  left: 4px;
   position: absolute;
-  top: 1px;
-  transform: rotate(45deg);
+  top: 1.9px;
+  left: 4.6px;
+  border: 1px solid #F9F9F9;
+  border-width: 0 2px 2px 0;
   width: 3px;
+  height: 6px;
+  transform: rotate(45deg);
+}
+.c-checkbox-input-field span {
+  color: #211F1F;
+  font-size: 0.825rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
 }
 
 .c-link {
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.025em;
+  color: #B2B2B2;
 }
-.c-link:hover {
-  color: #222;
+.c-link:hover, .c-link:focus-visible {
+  color: #0A0A0A;
 }
 
 .c-toggle-navigation {
