@@ -7,7 +7,9 @@
     gap: 54px;
     background-color: map-get(var.$colors, bgcolor);
     padding: 48px;
-    width: 400px;
+    width: map-get(var.$colors, form-content-width);
+    min-height: 100vh;
+    height: fit-content;
 }
 
 .l-form {
@@ -42,7 +44,7 @@
     justify-content: center;
     align-items: end;
     flex: 1;
-    padding-top: 32px;
+    margin-top: 40px;
 }
 
 .l-footer {
