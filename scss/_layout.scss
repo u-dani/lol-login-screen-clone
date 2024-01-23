@@ -4,10 +4,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
+    gap: 54px;
     background-color: map-get(var.$colors, bgcolor);
     padding: 48px;
-    width: 456px;
+    width: 400px;
 }
 
 .l-form {
@@ -42,6 +42,7 @@
     justify-content: center;
     align-items: end;
     flex: 1;
+    padding-top: 32px;
 }
 
 .l-footer {
