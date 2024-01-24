@@ -7,7 +7,7 @@
     gap: 54px;
     background-color: map-get(var.$colors, bgcolor);
     padding: 48px;
-    width: map-get(var.$colors, form-content-width);
+    width: var.$form-content-width;
     min-height: 100vh;
     height: fit-content;
 }

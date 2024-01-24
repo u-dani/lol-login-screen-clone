@@ -251,7 +251,7 @@
         position: center;
         size: cover;
     };
-    width: calc(100vw - map-get(var.$colors, form-content-width));
+    width: calc(100vw - var.$form-content-width);
     height: 100%;
     z-index: -1;
 }
