@@ -243,9 +243,9 @@
 }
 
 .c-wallpaper {
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 400px;
+    left: var.$form-content-width;
     background: {
         image: url('../images/wallpaper-login-lol.jpg');
         position: center;
@@ -253,5 +253,4 @@
     };
     width: calc(100vw - var.$form-content-width);
     height: 100%;
-    z-index: -1;
 }
