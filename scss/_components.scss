@@ -76,12 +76,12 @@
         display: block;
     }
 
-    &:has(input:focus) {
+    &:focus-within:not(:has(.btn-icon:focus-visible)) {
         border-color: map-get(var.$colors, gray-600);
         background: transparent;
     }
 
-    &:has(input:not(:placeholder-shown)) > span, &:has(input:focus) > span {
+    &:has(input:not(:placeholder-shown)) > span, &:has(input:focus) > span, &:focus-within:not(:has(.btn-icon:focus-visible)) > span {
         top: 12px;
         left: 8px;
         font-size: 0.7rem;
