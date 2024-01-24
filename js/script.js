@@ -1,18 +1,20 @@
 "use strict";
-const toggleIcon = document.querySelector('.js-toggle-profile-navbar');
-const profileNavbar = document.querySelector('.js-profile-navbar');
-const requiredInputs = document.querySelectorAll('.js-required-input');
-const btnSubmit = document.querySelector('.js-btn-submit');
-const validateSubmitButton = () => {
-    const isValid = [...requiredInputs].every(input => input.value !== '');
-    isValid ? btnSubmit === null || btnSubmit === void 0 ? void 0 : btnSubmit.removeAttribute('disabled') : btnSubmit === null || btnSubmit === void 0 ? void 0 : btnSubmit.setAttribute('disabled', '');
-};
-requiredInputs.forEach(field => field.addEventListener('input', validateSubmitButton));
-toggleIcon === null || toggleIcon === void 0 ? void 0 : toggleIcon.addEventListener('click', () => {
-    if (!profileNavbar) {
-        return;
+const visibilityIconPath = 'images/icons/icon-visibility.svg';
+const visibilityOffIconPath = 'images/icons/icon-visibility-off.svg';
+const passwordField = document.querySelector('#ipassword');
+const btnTogglePassword = document.querySelector('.js-toggle-password-visibility');
+const passwordIcon = btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.querySelector('.icon');
+function togglePasswordVisibility() {
+    const type = passwordField === null || passwordField === void 0 ? void 0 : passwordField.getAttribute('type');
+    if (type === 'password') {
+        passwordField === null || passwordField === void 0 ? void 0 : passwordField.setAttribute('type', 'text');
+        passwordIcon === null || passwordIcon === void 0 ? void 0 : passwordIcon.setAttribute('src', visibilityOffIconPath);
+        btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.setAttribute('aria-pressed', 'true');
     }
-    profileNavbar.classList.contains('is-hide')
-        ? profileNavbar.classList.remove('is-hide')
-        : profileNavbar.classList.add('is-hide');
-});
+    else {
+        passwordField === null || passwordField === void 0 ? void 0 : passwordField.setAttribute('type', 'password');
+        passwordIcon === null || passwordIcon === void 0 ? void 0 : passwordIcon.setAttribute('src', visibilityIconPath);
+        btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.setAttribute('aria-pressed', 'false');
+    }
+}
+btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.addEventListener('click', togglePasswordVisibility);
