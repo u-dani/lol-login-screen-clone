@@ -147,7 +147,7 @@
         padding: 8px;
         border-radius: 21px;
         background-color: map-get(var.$colors, highlight);
-        border: 2px solid map-get(var.$colors, highlight);
+        border: 3px solid map-get(var.$colors, highlight);
         color: map-get(var.$colors, bgcolor);
 
         .icon {
@@ -157,7 +157,14 @@
 
         &:hover {
             background-color: map-get(var.$colors, highlight-dark);
-            border: 2px solid map-get(var.$colors, highlight-dark);
+            border-color: map-get(var.$colors, highlight-dark);
+        }
+
+        &[aria-disabled="true"] {
+            background: transparent;
+            border-color: map-get(var.$colors, gray-100);
+            color: map-get(var.$colors, gray-100);
+            cursor: context-menu;
         }
     }
 
