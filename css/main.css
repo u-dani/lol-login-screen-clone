@@ -23,9 +23,7 @@
 
 html, body {
   font-family: "Spiegel", sans-serif;
-  display: flex;
   min-height: 100vh;
-  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -55,6 +53,9 @@ button {
   background-color: #F9F9F9;
   padding: 48px;
   width: 400px;
+  min-height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .l-form {
@@ -89,7 +90,7 @@ button {
   justify-content: center;
   align-items: end;
   flex: 1;
-  padding-top: 32px;
+  margin-top: 40px;
 }
 
 .l-footer {
@@ -144,8 +145,8 @@ button {
   align-items: center;
   gap: 4px;
   background-color: #EDEDED;
-  border-radius: 8px;
   border: 3px solid transparent;
+  border-radius: 6px;
   padding: 6px 8px;
   width: 100%;
   cursor: text;
@@ -154,7 +155,7 @@ button {
   position: absolute;
   top: 50%;
   left: 16px;
-  color: #919191;
+  color: #636363;
   font-size: 0.8rem;
   font-weight: 700;
   transform: translateY(-50%);
@@ -189,10 +190,13 @@ button {
   outline: 3px solid #333333;
   border-radius: 3px;
 }
+.c-text-input-field:hover {
+  background-color: #E8E8E8;
+}
 .c-text-input-field:focus-within .btn-icon {
   display: block;
 }
-.c-text-input-field:has(input:focus) {
+.c-text-input-field:focus-within:not(:has(.btn-icon:focus-visible)) {
   border-color: #333333;
   background: transparent;
 }
@@ -201,7 +205,7 @@ button {
   left: 8px;
   font-size: 0.7rem;
 }
-.c-text-input-field:has(input:not(:placeholder-shown)) > span, .c-text-input-field:has(input:focus) > span {
+.c-text-input-field:has(input:not(:placeholder-shown)) > span, .c-text-input-field:has(input:focus) > span, .c-text-input-field:focus-within:not(:has(.btn-icon:focus-visible)) > span {
   top: 12px;
   left: 8px;
   font-size: 0.7rem;
@@ -217,8 +221,8 @@ button {
   border-radius: 4px;
 }
 .c-btn .icon {
-  width: 21px;
-  height: 21px;
+  width: 16px;
+  height: 16px;
 }
 .c-btn--full {
   width: 100%;
@@ -256,7 +260,7 @@ button {
   padding: 8px;
   border-radius: 21px;
   background-color: #D13639;
-  border: 2px solid #D13639;
+  border: 3px solid #D13639;
   color: #F9F9F9;
 }
 .c-btn--submit .icon {
@@ -265,7 +269,13 @@ button {
 }
 .c-btn--submit:hover {
   background-color: #BC252A;
-  border: 2px solid #BC252A;
+  border-color: #BC252A;
+}
+.c-btn--submit[aria-disabled=true] {
+  background: transparent;
+  border-color: #E8E8E8;
+  color: #E8E8E8;
+  cursor: context-menu;
 }
 .c-btn:focus-visible {
   outline: 3px solid #333333;
@@ -343,9 +353,14 @@ button {
 }
 
 .c-wallpaper {
+  position: fixed;
+  top: 0;
+  left: 400px;
   background-image: url("../images/wallpaper-login-lol.jpg");
   background-position: center;
   background-size: cover;
+  width: calc(100vw - 400px);
+  height: 100%;
 }
 
 .is-visually-hidden {
