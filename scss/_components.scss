@@ -88,6 +88,22 @@
     }
 }
 
+.c-error-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: map-get(var.$colors, error-dark);
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    .icon {
+        min-width: 16px;
+        min-height: 16px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
 .c-btn {
     display: flex;
     justify-content: center;
