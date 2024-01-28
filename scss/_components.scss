@@ -95,6 +95,7 @@
     color: map-get(var.$colors, error-dark);
     font-size: 0.9rem;
     font-weight: 500;
+    padding-bottom: 4px;
 
     .icon {
         min-width: 16px;
