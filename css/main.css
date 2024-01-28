@@ -394,4 +394,17 @@ button {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.is-input-invalid {
+  background-color: #EED6F5;
+}
+.is-input-invalid span {
+  color: #522F5D;
+}
+.is-input-invalid:hover, .is-input-invalid:focus-within {
+  background-color: #EED6F5 !important;
+}
+.is-input-invalid:focus-within {
+  border-color: #BA27E7 !important;
 }/*# sourceMappingURL=main.css.map */
