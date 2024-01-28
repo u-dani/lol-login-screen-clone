@@ -21,7 +21,7 @@
         background-color: map-get(var.$colors, error-light) !important;
     }
 
-    &:focus-within {
+    &:focus-within:not(:has(.btn-icon:focus-visible)) {
         border-color: map-get(var.$colors, error) !important;
     }
 }
