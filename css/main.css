@@ -107,6 +107,12 @@ button {
   gap: 6px;
 }
 
+.l-dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 45px;
+}
+
 .c-logo {
   width: 108px;
 }
@@ -332,6 +338,10 @@ button {
 }
 .c-link:hover, .c-link:focus-visible {
   color: #0A0A0A;
+}
+
+.c-dropdown-menu {
+  z-index: 50;
 }
 
 .c-wallpaper {
