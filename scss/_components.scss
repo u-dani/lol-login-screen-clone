@@ -252,6 +252,35 @@
 
 .c-dropdown-menu {
     z-index: 50;
+
+    .toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 50%;
+        width: 46px;
+        height: 46px;
+        background-color: map-get(var.$colors, gray-800);
+        color: map-get(var.$colors, gray-300);
+        transition: 100ms ease;
+
+        .icon {
+            width: 28px;
+            height: 28px;
+        }
+
+        &:hover, &:focus-visible {
+            background-color: rgba(255, 255, 255, .3);
+            color: map-get(var.$colors, gray-50);
+        }
+
+        &:focus-visible {
+            outline: 6px double white;
+            outline-offset: 0px;
+            box-shadow: 0 0 0 4px black;
+        }
+    }
 }
 
 .c-wallpaper {
