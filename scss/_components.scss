@@ -281,6 +281,38 @@
             box-shadow: 0 0 0 4px black;
         }
     }
+
+    .list-options {
+        background-color: map-get(var.$colors, gray-800);
+        border-radius: 4px;
+        padding: 16px 0px;
+    }
+
+    .item {
+        padding: 0px 26px;
+    }
+
+    .option {
+        background-color: transparent;
+        border: none;
+        color: map-get(var.$colors, gray-300);
+        font-size: .8rem;
+        font-weight: bold;
+        letter-spacing: .5px;
+        padding: 12px;
+        text-align: start;
+        min-width: 200px;
+        width: 100%;
+
+        &:hover {
+            color: white;
+        }
+
+        &[aria-disabled="true"] {
+            color: map-get(var.$colors, gray-500);
+            cursor: context-menu;
+        }
+    }
 }
 
 .c-wallpaper {
