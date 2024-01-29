@@ -60,36 +60,3 @@
     align-items: center;
     gap: 6px;
 }
-
-// .l-navigation-container {
-
-// }
-
-.l-profile-navigation {
-    border-radius: 4px;
-    display: block;
-    padding: 16px;
-    position: absolute;
-    right: 88px;
-    top: 24px;
-    
-    .link {
-        border-radius: 4px;
-        display: block;
-        font-size: .75rem;
-        font-weight: 600;
-        letter-spacing: .8px;
-        min-width: 160px;
-        padding: 8px;
-        text-transform: uppercase;
-
-        &:hover {
-            background-color: #3333;
-            color: white;
-        }
-    }
-
-    &.is-hide {
-        display: none;
-    }
-}
