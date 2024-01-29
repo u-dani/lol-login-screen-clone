@@ -284,25 +284,22 @@
 
     .list-options {
         background-color: map-get(var.$colors, gray-800);
+        padding: 16px 26px;
         border-radius: 4px;
-        padding: 16px 0px;
-    }
-
-    .item {
-        padding: 0px 26px;
     }
 
     .option {
-        background-color: transparent;
+        background-color: map-get(var.$colors, gray-800);
         border: none;
         color: map-get(var.$colors, gray-300);
         font-size: .8rem;
         font-weight: bold;
         letter-spacing: .5px;
-        padding: 12px;
+        padding: 14px 12px;
         text-align: start;
         min-width: 200px;
         width: 100%;
+        border-radius: 4px;
 
         &:hover {
             color: white;
@@ -311,6 +308,11 @@
         &[aria-disabled="true"] {
             color: map-get(var.$colors, gray-500);
             cursor: context-menu;
+        }
+
+        &:focus-visible{
+            outline: 3px solid map-get(var.$colors, gray-300);
+            outline-offset: -3px;
         }
     }
 }
