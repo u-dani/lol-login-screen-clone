@@ -111,6 +111,10 @@ button {
   position: absolute;
   top: 45px;
   right: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
 }
 
 .c-logo {
@@ -342,6 +346,60 @@ button {
 
 .c-dropdown-menu {
   z-index: 50;
+}
+.c-dropdown-menu .toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  background-color: #211F1F;
+  color: #B2B2B2;
+  transition: 100ms ease;
+}
+.c-dropdown-menu .toggle .icon {
+  width: 28px;
+  height: 28px;
+}
+.c-dropdown-menu .toggle:hover, .c-dropdown-menu .toggle:focus-visible {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #EDEDED;
+}
+.c-dropdown-menu .toggle:focus-visible {
+  outline: 6px double white;
+  outline-offset: 0px;
+  box-shadow: 0 0 0 4px black;
+}
+.c-dropdown-menu .list-options {
+  background-color: #211F1F;
+  padding: 16px 26px;
+  border-radius: 4px;
+}
+.c-dropdown-menu .option {
+  background-color: #211F1F;
+  border: none;
+  color: #B2B2B2;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 14px 12px;
+  text-align: start;
+  min-width: 200px;
+  width: 100%;
+  border-radius: 4px;
+}
+.c-dropdown-menu .option:hover {
+  color: white;
+}
+.c-dropdown-menu .option[aria-disabled=true] {
+  color: #525252;
+  cursor: context-menu;
+}
+.c-dropdown-menu .option:focus-visible {
+  outline: 3px solid #B2B2B2;
+  outline-offset: -3px;
 }
 
 .c-wallpaper {
