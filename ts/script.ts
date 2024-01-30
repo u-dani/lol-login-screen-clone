@@ -11,13 +11,13 @@ function togglePasswordVisibility() {
     if (type === 'password') {
         passwordField?.setAttribute('type', 'text');
         passwordIcon?.setAttribute('src', visibilityOffIconPath);
-        btnTogglePassword?.setAttribute('aria-pressed', 'true');
+        btnTogglePassword?.setAttribute('aria-checked', 'true');
     }
 
     else {
         passwordField?.setAttribute('type', 'password');
         passwordIcon?.setAttribute('src', visibilityIconPath);
-        btnTogglePassword?.setAttribute('aria-pressed', 'false');
+        btnTogglePassword?.setAttribute('aria-checked', 'false');
     }
 }
 
