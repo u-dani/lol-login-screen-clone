@@ -7,9 +7,9 @@ const passwordIcon = btnTogglePassword?.querySelector('.icon');
 
 const loginForm = document.querySelector<HTMLFormElement>('.js-form');
 
+const credentialInputs = document.querySelectorAll('#iusername, #ipassword');
 const usernameInput = document.querySelector<HTMLInputElement>('#iusername');
 const passwordInput = document.querySelector<HTMLInputElement>('#ipassword');
-
 const usernameError = document.querySelector('.js-username-error');
 const passwordError = document.querySelector('.js-password-error');
 
@@ -112,18 +112,7 @@ btnTogglePassword?.addEventListener('click', togglePasswordVisibility);
 loginForm?.addEventListener('submit', submitForm);
 usernameInput?.addEventListener('focusout', () => validateUsername({ ignoreInputEmpty: true }));
 passwordInput?.addEventListener('focusout', () => validatePassword({ ignoreInputEmpty: true}));
-/*
-    Validação toda feita por javascript >:(
-    
-    validação login lol
-    - caracteres permitidos: espaço, letras, números, underline e traço
-    - precisa ter no mínimo 2 caracteres (sem ser espaço)
-    
-    mostrar erro quando:
-    - perder o foco e estiver com dados inválidos
-    - quando estiver vazios "só com espaços" e não mostrar o placeholder
-    - quando tentar enviar o formulário com os campos inválidos
-
-    importante
-    - só mostrar erro de "campo obrigatório" no evento submit, não no focusout do input
-*/
+credentialInputs.forEach(input => input.addEventListener('input', (e) => {
+    const target = e.target as HTMLInputElement
+    target.classList.remove('is-input-invalid');
+}));
