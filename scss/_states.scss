@@ -10,18 +10,28 @@
     width: 1px;
 }
 
-.is-input-invalid {
-    background-color: map-get(var.$colors, error-light);
+.l-input-validation-container:not(.is-invalid) .error {
+    display: none;
+}
 
-    span {
-        color: map-get(var.$colors, error-dark);
+.l-input-validation-container.is-invalid {
+    .error {
+        display: block;
     }
 
-    &:hover, &:focus-within {
-        background-color: map-get(var.$colors, error-light) !important;
-    }
+    .input-field {
+        background-color: map-get(var.$colors, error-light);
 
-    &:focus-within:not(:has(.btn-icon:focus-visible)) {
-        border-color: map-get(var.$colors, error) !important;
+        span {
+            color: map-get(var.$colors, error-dark);
+        }
+
+        &:hover, &:focus-within {
+            background-color: map-get(var.$colors, error-light) !important;
+        }
+    
+        &:focus-within:not(:has(.btn-icon:focus-visible)) {
+            border-color: map-get(var.$colors, error) !important;
+        }
     }
 }
