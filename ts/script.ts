@@ -96,8 +96,16 @@ function togglePasswordVisibility() {
 
 function submitForm(e: SubmitEvent) {
     e.preventDefault();
-    validateUsername({});
     validatePassword({});
+    validateUsername({});
+
+    const firstInvalidElement = document.querySelector<HTMLInputElement>('.is-input-invalid');
+    firstInvalidElement?.focus();
+
+    if (!firstInvalidElement) {
+        const target = e.target as HTMLFormElement;
+        target.submit();
+    }
 }
 
 btnTogglePassword?.addEventListener('click', togglePasswordVisibility);
