@@ -10,7 +10,7 @@
     width: 1px;
 }
 
-.l-input-validation-container:has(.is-input-invalid) .error {
+.l-input-validation-container .error {
     display: none;
 }
 
