@@ -16,7 +16,7 @@
 
 .l-input-validation-container:has(.is-input-invalid) {
     .error {
-        display: block;
+        display: flex;
     }
 
     .input-field {
