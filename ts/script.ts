@@ -56,12 +56,27 @@ function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean })
     }
 
     usernameInput?.classList.remove('is-input-invalid');
-
     return {
         isValid: true, inputElement, typeError: undefined
     }
 }
 
+function validatePassword({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }): inputValidationReturn {
+    const value = passwordInput?.value;
+
+    if (!ignoreInputEmpty && value?.length === 0) {
+        passwordError!.textContent = 'Preencha o campo';
+        passwordInput?.classList.add('is-input-invalid');
+        return {
+            isValid: false, inputElement: passwordInput, typeError: "valueMissing"
+        }
+    }
+
+    passwordInput?.classList.remove('is-input-invalid');
+    return {
+        isValid: true, inputElement: passwordInput, typeError: undefined
+    }
+}
 
 function togglePasswordVisibility() {
     const type = passwordField?.getAttribute('type');
@@ -81,14 +96,14 @@ function togglePasswordVisibility() {
 
 function submitForm(e: SubmitEvent) {
     e.preventDefault();
-
     validateUsername({});
+    validatePassword({});
 }
 
 btnTogglePassword?.addEventListener('click', togglePasswordVisibility);
 loginForm?.addEventListener('submit', submitForm);
 usernameInput?.addEventListener('focusout', () => validateUsername({ ignoreInputEmpty: true }));
-
+passwordInput?.addEventListener('focusout', () => validatePassword({ ignoreInputEmpty: true}));
 /*
     Validação toda feita por javascript >:(
     
