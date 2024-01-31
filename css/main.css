@@ -73,7 +73,7 @@ button {
   gap: 16px;
 }
 
-.l-text-input-container {
+.l-input-validation-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -207,7 +207,7 @@ button {
   align-items: center;
   gap: 8px;
   color: #522F5D;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
   padding-bottom: 4px;
 }
@@ -360,8 +360,8 @@ button {
   transition: 100ms ease;
 }
 .c-dropdown-menu .toggle .icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
 }
 .c-dropdown-menu .toggle:hover, .c-dropdown-menu .toggle:focus-visible {
   background-color: rgba(255, 255, 255, 0.3);
@@ -424,15 +424,22 @@ button {
   width: 1px;
 }
 
-.is-input-invalid {
+.l-input-validation-container .error {
+  display: none;
+}
+
+.l-input-validation-container:has(.is-input-invalid) .error {
+  display: flex;
+}
+.l-input-validation-container:has(.is-input-invalid) .input-field {
   background-color: #EED6F5;
 }
-.is-input-invalid span {
+.l-input-validation-container:has(.is-input-invalid) .input-field span {
   color: #522F5D;
 }
-.is-input-invalid:hover, .is-input-invalid:focus-within {
+.l-input-validation-container:has(.is-input-invalid) .input-field:hover, .l-input-validation-container:has(.is-input-invalid) .input-field:focus-within {
   background-color: #EED6F5 !important;
 }
-.is-input-invalid:focus-within:not(:has(.btn-icon:focus-visible)) {
+.l-input-validation-container:has(.is-input-invalid) .input-field:focus-within:not(:has(.btn-icon:focus-visible)) {
   border-color: #BA27E7 !important;
 }/*# sourceMappingURL=main.css.map */
