@@ -10,11 +10,11 @@
     width: 1px;
 }
 
-.l-input-validation-container:not(.is-invalid) .error {
+.l-input-validation-container:has(.is-input-invalid) .error {
     display: none;
 }
 
-.l-input-validation-container.is-invalid {
+.l-input-validation-container:has(.is-input-invalid) {
     .error {
         display: block;
     }
