@@ -6,26 +6,16 @@ const btnTogglePassword = document.querySelector('.js-toggle-password-visibility
 const passwordIcon = btnTogglePassword?.querySelector('.icon');
 
 const loginForm = document.querySelector<HTMLFormElement>('.js-form');
-
 const credentialInputs = document.querySelectorAll('#iusername, #ipassword');
+
 const usernameInput = document.querySelector<HTMLInputElement>('#iusername');
 const passwordInput = document.querySelector<HTMLInputElement>('#ipassword');
 const usernameError = document.querySelector('.js-username-error');
 const passwordError = document.querySelector('.js-password-error');
 
-
-interface inputValidationReturn {
-    isValid: boolean
-    typeError: 'valueMissing' | 'tooShort' | 'invalidCharacters' | undefined
-    inputElement: HTMLInputElement | null
-}
-
-function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }) : inputValidationReturn {
+function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }) {
     const regex = /^[\w\s\-]*$/
     const value = usernameInput!.value.trim();
-
-    const isValid = false
-    const inputElement = usernameInput
 
     if (/^[\s]+$/.test(usernameInput!.value)) {
         usernameInput!.value = "";
@@ -34,48 +24,33 @@ function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean })
     if (!ignoreInputEmpty && value?.length === 0) {
         usernameError!.textContent = 'Preencha o campo';
         usernameInput?.classList.add('is-input-invalid');
-        return {
-            isValid, inputElement, typeError: "valueMissing"
-        }
+        return
     }
 
     if (!regex.test(value)) {
         usernameError!.textContent = 'Caracteres especiais não são permitidos no nome de usuário';
         usernameInput?.classList.add('is-input-invalid');
-        return {
-            isValid, inputElement, typeError: "invalidCharacters"
-        }
+        return
     }
 
     if (value.length > 0 && value.length < 2) {
         usernameError!.textContent = 'Deve ter pelo menos 2 caracteres';
         usernameInput?.classList.add('is-input-invalid');
-        return {
-            isValid, inputElement, typeError: "tooShort"
-        }
+        return
     }
 
     usernameInput?.classList.remove('is-input-invalid');
-    return {
-        isValid: true, inputElement, typeError: undefined
-    }
 }
 
-function validatePassword({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }): inputValidationReturn {
+function validatePassword({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }) {
     const value = passwordInput?.value;
 
     if (!ignoreInputEmpty && value?.length === 0) {
         passwordError!.textContent = 'Preencha o campo';
         passwordInput?.classList.add('is-input-invalid');
-        return {
-            isValid: false, inputElement: passwordInput, typeError: "valueMissing"
-        }
     }
 
     passwordInput?.classList.remove('is-input-invalid');
-    return {
-        isValid: true, inputElement: passwordInput, typeError: undefined
-    }
 }
 
 function togglePasswordVisibility() {
