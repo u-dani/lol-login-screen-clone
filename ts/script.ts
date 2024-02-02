@@ -12,6 +12,7 @@ const usernameInput = document.querySelector<HTMLInputElement>('#iusername');
 const passwordInput = document.querySelector<HTMLInputElement>('#ipassword');
 const usernameError = document.querySelector('.js-username-error');
 const passwordError = document.querySelector('.js-password-error');
+const submitButton = document.querySelector('.js-btn-submit');
 
 function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }) {
     const regex = /^[\w\s\-]*$/
@@ -68,11 +69,6 @@ function togglePasswordVisibility() {
         passwordIcon?.setAttribute('src', visibilityIconPath);
         btnTogglePassword?.setAttribute('aria-checked', 'false');
     }
-}
-
-function check() {
-    const firstInvalidElement = document.querySelector<HTMLInputElement>('.is-input-invalid');
-    return firstInvalidElement;
 }
 
 function submitForm(e: SubmitEvent) {
