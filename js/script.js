@@ -16,11 +16,10 @@ function validateUsername({ ignoreInputEmpty }) {
     const value = usernameInput.value.trim();
     const isValid = false;
     const inputElement = usernameInput;
-    let typeError;
     // limpar campo caso só tenha espaços
-    if (/^[\s]+$/.test(usernameInput.value)) {
-        usernameInput.value = "";
-    }
+    // if (/^[\s]+$/.test(usernameInput!.value)) {
+    //     usernameInput!.value = "";
+    // }
     if (!ignoreInputEmpty && (value === null || value === void 0 ? void 0 : value.length) === 0) {
         return { isValid, inputElement, typeError: "valueMissing" };
     }
@@ -31,14 +30,14 @@ function validateUsername({ ignoreInputEmpty }) {
         return { isValid, inputElement, typeError: "tooShort" };
     }
     usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.classList.remove('is-input-invalid');
-    return { isValid: false, typeError: undefined, inputElement: usernameInput };
+    return { isValid: true, inputElement: usernameInput, typeError: undefined };
 }
 function validatePassword({ ignoreInputEmpty }) {
     const value = passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.value;
     if (!ignoreInputEmpty && (value === null || value === void 0 ? void 0 : value.length) === 0) {
         passwordError.textContent = 'Preencha o campo';
         passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.add('is-input-invalid');
-        return;
+        // return;
     }
     passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.remove('is-input-invalid');
 }
@@ -61,20 +60,26 @@ function submitForm(e) {
     validateUsername({});
     const firstInvalidElement = document.querySelector('.is-input-invalid');
     firstInvalidElement === null || firstInvalidElement === void 0 ? void 0 : firstInvalidElement.focus();
-    if (!firstInvalidElement) {
-        const target = e.target;
-        target.submit();
-    }
+    // if (!firstInvalidElement) {
+    //     const target = e.target as HTMLFormElement;
+    //     target.submit();
+    // }
+}
+function handleCredentialInputs(e) {
+    console.log('input');
+    const target = e.target;
+    target.classList.remove('is-input-invalid');
+    const username = validateUsername({});
+    console.log(username);
+    username.isValid
+        ? submitButton === null || submitButton === void 0 ? void 0 : submitButton.setAttribute('aria-disabled', 'false')
+        : submitButton === null || submitButton === void 0 ? void 0 : submitButton.setAttribute('aria-disabled', 'true');
 }
 btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.addEventListener('click', togglePasswordVisibility);
 loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener('submit', submitForm);
 usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.addEventListener('focusout', () => validateUsername({ ignoreInputEmpty: true }));
 passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.addEventListener('focusout', () => validatePassword({ ignoreInputEmpty: true }));
-credentialInputs.forEach(input => input.addEventListener('input', (e) => {
-    const target = e.target;
-    target.classList.remove('is-input-invalid');
-    // button aria-disabled
-}));
+credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 /*
     .is-input-invalid
 
