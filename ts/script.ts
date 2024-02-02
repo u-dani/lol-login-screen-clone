@@ -26,12 +26,11 @@ function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean })
 
     const isValid = false;
     const inputElement = usernameInput;
-    let typeError: inputValidationReturn["typeError"];
 
     // limpar campo caso só tenha espaços
-    if (/^[\s]+$/.test(usernameInput!.value)) {
-        usernameInput!.value = "";
-    }
+    // if (/^[\s]+$/.test(usernameInput!.value)) {
+    //     usernameInput!.value = "";
+    // }
 
     if (!ignoreInputEmpty && value?.length === 0) {
         return { isValid, inputElement, typeError: "valueMissing" };
@@ -46,7 +45,7 @@ function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean })
     }
 
     usernameInput?.classList.remove('is-input-invalid');
-    return { isValid: false, typeError: undefined, inputElement: usernameInput };
+    return { isValid: true, inputElement: usernameInput, typeError: undefined };
 }
 
 function validatePassword({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }) {
@@ -55,7 +54,7 @@ function validatePassword({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean })
     if (!ignoreInputEmpty && value?.length === 0) {
         passwordError!.textContent = 'Preencha o campo';
         passwordInput?.classList.add('is-input-invalid');
-        return;
+        // return;
     }
 
     passwordInput?.classList.remove('is-input-invalid');
@@ -85,22 +84,32 @@ function submitForm(e: SubmitEvent) {
     const firstInvalidElement = document.querySelector<HTMLInputElement>('.is-input-invalid');
     firstInvalidElement?.focus();
 
-    if (!firstInvalidElement) {
-        const target = e.target as HTMLFormElement;
-        target.submit();
-    }
+    // if (!firstInvalidElement) {
+    //     const target = e.target as HTMLFormElement;
+    //     target.submit();
+    // }
 }
+
+function handleCredentialInputs(e) {
+    console.log('input')
+    const target = e.target as HTMLInputElement
+    target.classList.remove('is-input-invalid');
+
+    const username = validateUsername({});
+    console.log(username)
+
+    username.isValid 
+        ? submitButton?.setAttribute('aria-disabled', 'false')
+        : submitButton?.setAttribute('aria-disabled', 'true')
+}
+
+
 
 btnTogglePassword?.addEventListener('click', togglePasswordVisibility);
 loginForm?.addEventListener('submit', submitForm);
 usernameInput?.addEventListener('focusout', () => validateUsername({ ignoreInputEmpty: true }));
 passwordInput?.addEventListener('focusout', () => validatePassword({ ignoreInputEmpty: true}));
-credentialInputs.forEach(input => input.addEventListener('input', (e) => {
-    const target = e.target as HTMLInputElement
-    target.classList.remove('is-input-invalid');
-    
-    // button aria-disabled
-}));
+credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 
 /*
     .is-input-invalid
