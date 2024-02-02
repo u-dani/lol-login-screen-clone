@@ -166,6 +166,7 @@
         background-color: map-get(var.$colors, highlight);
         border: 3px solid map-get(var.$colors, highlight);
         color: map-get(var.$colors, bgcolor);
+        transition: 200ms ease;
 
         .icon {
             width: 48px;
