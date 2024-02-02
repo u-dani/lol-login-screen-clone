@@ -10,28 +10,28 @@ const usernameInput = document.querySelector('#iusername');
 const passwordInput = document.querySelector('#ipassword');
 const usernameError = document.querySelector('.js-username-error');
 const passwordError = document.querySelector('.js-password-error');
+const submitButton = document.querySelector('.js-btn-submit');
 function validateUsername({ ignoreInputEmpty }) {
     const regex = /^[\w\s\-]*$/;
     const value = usernameInput.value.trim();
+    const isValid = false;
+    const inputElement = usernameInput;
+    let typeError;
+    // limpar campo caso só tenha espaços
     if (/^[\s]+$/.test(usernameInput.value)) {
         usernameInput.value = "";
     }
     if (!ignoreInputEmpty && (value === null || value === void 0 ? void 0 : value.length) === 0) {
-        usernameError.textContent = 'Preencha o campo';
-        usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.classList.add('is-input-invalid');
-        return;
+        return { isValid, inputElement, typeError: "valueMissing" };
     }
     if (!regex.test(value)) {
-        usernameError.textContent = 'Caracteres especiais não são permitidos no nome de usuário';
-        usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.classList.add('is-input-invalid');
-        return;
+        return { isValid, inputElement, typeError: "invalidCharacters" };
     }
     if (value.length > 0 && value.length < 2) {
-        usernameError.textContent = 'Deve ter pelo menos 2 caracteres';
-        usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.classList.add('is-input-invalid');
-        return;
+        return { isValid, inputElement, typeError: "tooShort" };
     }
     usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.classList.remove('is-input-invalid');
+    return { isValid: false, typeError: undefined, inputElement: usernameInput };
 }
 function validatePassword({ ignoreInputEmpty }) {
     const value = passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.value;
@@ -55,10 +55,6 @@ function togglePasswordVisibility() {
         btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.setAttribute('aria-checked', 'false');
     }
 }
-function check() {
-    const firstInvalidElement = document.querySelector('.is-input-invalid');
-    return firstInvalidElement;
-}
 function submitForm(e) {
     e.preventDefault();
     validatePassword({});
@@ -77,4 +73,13 @@ passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.addE
 credentialInputs.forEach(input => input.addEventListener('input', (e) => {
     const target = e.target;
     target.classList.remove('is-input-invalid');
+    // button aria-disabled
 }));
+/*
+    .is-input-invalid
+
+    MENSAGENS DE ERRO
+        "Preencha o campo"
+        "Caracteres especiais não são permitidos no nome de usuário"
+        "Deve ter pelo menos 2 caracteres"
+*/ 
