@@ -24,19 +24,19 @@ function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean })
     if (!ignoreInputEmpty && value?.length === 0) {
         usernameError!.textContent = 'Preencha o campo';
         usernameInput?.classList.add('is-input-invalid');
-        return
+        return;
     }
 
     if (!regex.test(value)) {
         usernameError!.textContent = 'Caracteres especiais não são permitidos no nome de usuário';
         usernameInput?.classList.add('is-input-invalid');
-        return
+        return;
     }
 
     if (value.length > 0 && value.length < 2) {
         usernameError!.textContent = 'Deve ter pelo menos 2 caracteres';
         usernameInput?.classList.add('is-input-invalid');
-        return
+        return;
     }
 
     usernameInput?.classList.remove('is-input-invalid');
@@ -48,6 +48,7 @@ function validatePassword({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean })
     if (!ignoreInputEmpty && value?.length === 0) {
         passwordError!.textContent = 'Preencha o campo';
         passwordInput?.classList.add('is-input-invalid');
+        return;
     }
 
     passwordInput?.classList.remove('is-input-invalid');
@@ -67,6 +68,11 @@ function togglePasswordVisibility() {
         passwordIcon?.setAttribute('src', visibilityIconPath);
         btnTogglePassword?.setAttribute('aria-checked', 'false');
     }
+}
+
+function check() {
+    const firstInvalidElement = document.querySelector<HTMLInputElement>('.is-input-invalid');
+    return firstInvalidElement;
 }
 
 function submitForm(e: SubmitEvent) {
