@@ -14,33 +14,39 @@ const usernameError = document.querySelector('.js-username-error');
 const passwordError = document.querySelector('.js-password-error');
 const submitButton = document.querySelector('.js-btn-submit');
 
-function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }) {
+interface inputValidationReturn {
+    isValid: boolean
+    typeError: 'valueMissing' | 'tooShort' | 'invalidCharacters' | undefined
+    inputElement: HTMLInputElement | null
+}
+
+function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }): inputValidationReturn {
     const regex = /^[\w\s\-]*$/
     const value = usernameInput!.value.trim();
 
+    const isValid = false;
+    const inputElement = usernameInput;
+    let typeError: inputValidationReturn["typeError"];
+
+    // limpar campo caso só tenha espaços
     if (/^[\s]+$/.test(usernameInput!.value)) {
         usernameInput!.value = "";
     }
 
     if (!ignoreInputEmpty && value?.length === 0) {
-        usernameError!.textContent = 'Preencha o campo';
-        usernameInput?.classList.add('is-input-invalid');
-        return;
+        return { isValid, inputElement, typeError: "valueMissing" };
     }
 
     if (!regex.test(value)) {
-        usernameError!.textContent = 'Caracteres especiais não são permitidos no nome de usuário';
-        usernameInput?.classList.add('is-input-invalid');
-        return;
+        return { isValid, inputElement, typeError: "invalidCharacters" };
     }
 
     if (value.length > 0 && value.length < 2) {
-        usernameError!.textContent = 'Deve ter pelo menos 2 caracteres';
-        usernameInput?.classList.add('is-input-invalid');
-        return;
+        return { isValid, inputElement, typeError: "tooShort" };
     }
 
     usernameInput?.classList.remove('is-input-invalid');
+    return { isValid: false, typeError: undefined, inputElement: usernameInput };
 }
 
 function validatePassword({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }) {
@@ -92,4 +98,15 @@ passwordInput?.addEventListener('focusout', () => validatePassword({ ignoreInput
 credentialInputs.forEach(input => input.addEventListener('input', (e) => {
     const target = e.target as HTMLInputElement
     target.classList.remove('is-input-invalid');
+    
+    // button aria-disabled
 }));
+
+/*
+    .is-input-invalid
+
+    MENSAGENS DE ERRO
+        "Preencha o campo"
+        "Caracteres especiais não são permitidos no nome de usuário"
+        "Deve ter pelo menos 2 caracteres"
+*/
