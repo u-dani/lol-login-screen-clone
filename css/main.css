@@ -269,6 +269,7 @@ button {
   background-color: #D13639;
   border: 3px solid #D13639;
   color: #F9F9F9;
+  transition: 200ms ease;
 }
 .c-btn--submit .icon {
   width: 48px;
