@@ -38,6 +38,7 @@ function validatePassword({ ignoreInputEmpty }) {
     if (!ignoreInputEmpty && (value === null || value === void 0 ? void 0 : value.length) === 0) {
         passwordError.textContent = 'Preencha o campo';
         passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.add('is-input-invalid');
+        return;
     }
     passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.remove('is-input-invalid');
 }
@@ -53,6 +54,10 @@ function togglePasswordVisibility() {
         passwordIcon === null || passwordIcon === void 0 ? void 0 : passwordIcon.setAttribute('src', visibilityIconPath);
         btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.setAttribute('aria-checked', 'false');
     }
+}
+function check() {
+    const firstInvalidElement = document.querySelector('.is-input-invalid');
+    return firstInvalidElement;
 }
 function submitForm(e) {
     e.preventDefault();
