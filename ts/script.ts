@@ -20,19 +20,14 @@ interface inputValidationReturn {
     inputElement: HTMLInputElement | null
 }
 
-function validateUsername({ ignoreInputEmpty } : { ignoreInputEmpty?: boolean }): inputValidationReturn {
+function validateUsername(): inputValidationReturn {
     const regex = /^[\w\s\-]*$/
     const value = usernameInput!.value.trim();
 
     const isValid = false;
     const inputElement = usernameInput;
 
-    // limpar campo caso só tenha espaços
-    // if (/^[\s]+$/.test(usernameInput!.value)) {
-    //     usernameInput!.value = "";
-    // }
-
-    if (!ignoreInputEmpty && value?.length === 0) {
+    if (value?.length === 0) {
         return { isValid, inputElement, typeError: "valueMissing" };
     }
 
@@ -79,7 +74,7 @@ function togglePasswordVisibility() {
 function submitForm(e: SubmitEvent) {
     e.preventDefault();
     validatePassword({});
-    validateUsername({});
+    validateUsername();
 
     const firstInvalidElement = document.querySelector<HTMLInputElement>('.is-input-invalid');
     firstInvalidElement?.focus();
@@ -95,7 +90,7 @@ function handleCredentialInputs(e) {
     const target = e.target as HTMLInputElement
     target.classList.remove('is-input-invalid');
 
-    const username = validateUsername({});
+    const username = validateUsername();
     console.log(username)
 
     username.isValid 
@@ -107,8 +102,8 @@ function handleCredentialInputs(e) {
 
 btnTogglePassword?.addEventListener('click', togglePasswordVisibility);
 loginForm?.addEventListener('submit', submitForm);
-usernameInput?.addEventListener('focusout', () => validateUsername({ ignoreInputEmpty: true }));
-passwordInput?.addEventListener('focusout', () => validatePassword({ ignoreInputEmpty: true}));
+usernameInput?.addEventListener('focusout', () => validateUsername());
+passwordInput?.addEventListener('focusout', () => validatePassword({}));
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 
 /*
