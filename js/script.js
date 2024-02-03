@@ -11,16 +11,12 @@ const passwordInput = document.querySelector('#ipassword');
 const usernameError = document.querySelector('.js-username-error');
 const passwordError = document.querySelector('.js-password-error');
 const submitButton = document.querySelector('.js-btn-submit');
-function validateUsername({ ignoreInputEmpty }) {
+function validateUsername() {
     const regex = /^[\w\s\-]*$/;
     const value = usernameInput.value.trim();
     const isValid = false;
     const inputElement = usernameInput;
-    // limpar campo caso só tenha espaços
-    // if (/^[\s]+$/.test(usernameInput!.value)) {
-    //     usernameInput!.value = "";
-    // }
-    if (!ignoreInputEmpty && (value === null || value === void 0 ? void 0 : value.length) === 0) {
+    if ((value === null || value === void 0 ? void 0 : value.length) === 0) {
         return { isValid, inputElement, typeError: "valueMissing" };
     }
     if (!regex.test(value)) {
@@ -29,17 +25,18 @@ function validateUsername({ ignoreInputEmpty }) {
     if (value.length > 0 && value.length < 2) {
         return { isValid, inputElement, typeError: "tooShort" };
     }
-    usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.classList.remove('is-input-invalid');
     return { isValid: true, inputElement: usernameInput, typeError: undefined };
 }
-function validatePassword({ ignoreInputEmpty }) {
+function validatePassword() {
     const value = passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.value;
-    if (!ignoreInputEmpty && (value === null || value === void 0 ? void 0 : value.length) === 0) {
-        passwordError.textContent = 'Preencha o campo';
-        passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.add('is-input-invalid');
-        // return;
+    if ((value === null || value === void 0 ? void 0 : value.length) === 0) {
+        return { inputElement: passwordInput, isValid: false, typeError: 'valueMissing' };
     }
-    passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.remove('is-input-invalid');
+    return {
+        inputElement: passwordInput,
+        isValid: true,
+        typeError: undefined
+    };
 }
 function togglePasswordVisibility() {
     const type = passwordField === null || passwordField === void 0 ? void 0 : passwordField.getAttribute('type');
@@ -56,8 +53,8 @@ function togglePasswordVisibility() {
 }
 function submitForm(e) {
     e.preventDefault();
-    validatePassword({});
-    validateUsername({});
+    validatePassword();
+    validateUsername();
     const firstInvalidElement = document.querySelector('.is-input-invalid');
     firstInvalidElement === null || firstInvalidElement === void 0 ? void 0 : firstInvalidElement.focus();
     // if (!firstInvalidElement) {
@@ -66,19 +63,18 @@ function submitForm(e) {
     // }
 }
 function handleCredentialInputs(e) {
-    console.log('input');
     const target = e.target;
     target.classList.remove('is-input-invalid');
-    const username = validateUsername({});
-    console.log(username);
-    username.isValid
+    const username = validateUsername();
+    const password = validatePassword();
+    username.isValid && password.isValid
         ? submitButton === null || submitButton === void 0 ? void 0 : submitButton.setAttribute('aria-disabled', 'false')
         : submitButton === null || submitButton === void 0 ? void 0 : submitButton.setAttribute('aria-disabled', 'true');
 }
 btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.addEventListener('click', togglePasswordVisibility);
 loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener('submit', submitForm);
-usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.addEventListener('focusout', () => validateUsername({ ignoreInputEmpty: true }));
-passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.addEventListener('focusout', () => validatePassword({ ignoreInputEmpty: true }));
+usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.addEventListener('focusout', () => validateUsername());
+passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.addEventListener('focusout', () => validatePassword());
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 /*
     .is-input-invalid
@@ -87,4 +83,12 @@ credentialInputs.forEach(input => input.addEventListener('input', handleCredenti
         "Preencha o campo"
         "Caracteres especiais não são permitidos no nome de usuário"
         "Deve ter pelo menos 2 caracteres"
+
+    passwordError!.textContent = 'Preencha o campo';
+    passwordInput?.classList.add('is-input-invalid');
+
+    // limpar campo caso só tenha espaços
+    // if (/^[\s]+$/.test(usernameInput!.value)) {
+    //     usernameInput!.value = "";
+    // }
 */ 
