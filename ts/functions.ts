@@ -40,49 +40,6 @@ function validatePassword(): inputValidationReturn {
     }
 }
 
-function togglePasswordVisibility() {
-    const type = passwordField?.getAttribute('type');
-
-    if (type === 'password') {
-        passwordField?.setAttribute('type', 'text');
-        passwordIcon?.setAttribute('src', visibilityOffIconPath);
-        btnTogglePassword?.setAttribute('aria-checked', 'true');
-    }
-
-    else {
-        passwordField?.setAttribute('type', 'password');
-        passwordIcon?.setAttribute('src', visibilityIconPath);
-        btnTogglePassword?.setAttribute('aria-checked', 'false');
-    }
-}
-
-function submitForm(e: SubmitEvent) {
-    e.preventDefault();
-
-    const username = validateUsername();
-    const password = validatePassword()
-
-    if (!username.isValid) {
-        const message = returnErrorMessage({ typeError: username.typeError });
-        usernameError!.textContent = message ?? 'Campo inválido';
-        usernameInput?.classList.add('is-input-invalid');
-    }
-
-    if (!password.isValid) {
-        const message = returnErrorMessage({ typeError: password.typeError });
-        passwordError!.textContent = message ?? 'Campo inválido';
-        passwordInput?.classList.add('is-input-invalid');
-    }
-
-    const firstInvalidElement = document.querySelector<HTMLInputElement>('.is-input-invalid');
-    firstInvalidElement?.focus();
-
-    if (!firstInvalidElement) {
-        const target = e.target as HTMLFormElement;
-        target.submit();
-    }
-}
-
 function handleCredentialInputs(e: Event) {
     const target = e.target as HTMLInputElement;
     target.classList.remove('is-input-invalid');
@@ -136,4 +93,47 @@ function passwordInputFocusout() {
     const message = returnErrorMessage({ typeError: password.typeError });
     passwordError!.textContent = message ?? 'Campo inválido';
     passwordInput?.classList.add('is-input-invalid');
+}
+
+function submitForm(e: SubmitEvent) {
+    e.preventDefault();
+
+    const username = validateUsername();
+    const password = validatePassword()
+
+    if (!username.isValid) {
+        const message = returnErrorMessage({ typeError: username.typeError });
+        usernameError!.textContent = message ?? 'Campo inválido';
+        usernameInput?.classList.add('is-input-invalid');
+    }
+
+    if (!password.isValid) {
+        const message = returnErrorMessage({ typeError: password.typeError });
+        passwordError!.textContent = message ?? 'Campo inválido';
+        passwordInput?.classList.add('is-input-invalid');
+    }
+
+    const firstInvalidElement = document.querySelector<HTMLInputElement>('.is-input-invalid');
+    firstInvalidElement?.focus();
+
+    if (!firstInvalidElement) {
+        const target = e.target as HTMLFormElement;
+        target.submit();
+    }
+}
+
+function togglePasswordVisibility() {
+    const type = passwordField?.getAttribute('type');
+
+    if (type === 'password') {
+        passwordField?.setAttribute('type', 'text');
+        passwordIcon?.setAttribute('src', visibilityOffIconPath);
+        btnTogglePassword?.setAttribute('aria-checked', 'true');
+    }
+
+    else {
+        passwordField?.setAttribute('type', 'password');
+        passwordIcon?.setAttribute('src', visibilityIconPath);
+        btnTogglePassword?.setAttribute('aria-checked', 'false');
+    }
 }
