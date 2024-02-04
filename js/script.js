@@ -53,14 +53,24 @@ function togglePasswordVisibility() {
 }
 function submitForm(e) {
     e.preventDefault();
-    validatePassword();
-    validateUsername();
+    const username = validateUsername();
+    const password = validatePassword();
+    if (!username.isValid) {
+        const message = returnErrorMessage({ typeError: username.typeError });
+        usernameError.textContent = message !== null && message !== void 0 ? message : 'Campo inválido';
+        usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.classList.add('is-input-invalid');
+    }
+    if (!password.isValid) {
+        const message = returnErrorMessage({ typeError: password.typeError });
+        passwordError.textContent = message !== null && message !== void 0 ? message : 'Campo inválido';
+        passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.add('is-input-invalid');
+    }
     const firstInvalidElement = document.querySelector('.is-input-invalid');
     firstInvalidElement === null || firstInvalidElement === void 0 ? void 0 : firstInvalidElement.focus();
-    // if (!firstInvalidElement) {
-    //     const target = e.target as HTMLFormElement;
-    //     target.submit();
-    // }
+    if (!firstInvalidElement) {
+        const target = e.target;
+        target.submit();
+    }
 }
 function handleCredentialInputs(e) {
     const target = e.target;
