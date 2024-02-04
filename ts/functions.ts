@@ -4,6 +4,22 @@ interface inputValidationReturn {
     inputElement: HTMLInputElement | null
 }
 
+function togglePasswordVisibility() {
+    const type = passwordField?.getAttribute('type');
+
+    if (type === 'password') {
+        passwordField?.setAttribute('type', 'text');
+        passwordIcon?.setAttribute('src', visibilityOffIconPath);
+        btnTogglePassword?.setAttribute('aria-checked', 'true');
+    }
+
+    else {
+        passwordField?.setAttribute('type', 'password');
+        passwordIcon?.setAttribute('src', visibilityIconPath);
+        btnTogglePassword?.setAttribute('aria-checked', 'false');
+    }
+}
+
 function validateUsername(): inputValidationReturn {
     const regex = /^[\w\s\-]*$/
     const value = usernameInput!.value.trim();
@@ -119,21 +135,5 @@ function submitForm(e: SubmitEvent) {
     if (!firstInvalidElement) {
         const target = e.target as HTMLFormElement;
         target.submit();
-    }
-}
-
-function togglePasswordVisibility() {
-    const type = passwordField?.getAttribute('type');
-
-    if (type === 'password') {
-        passwordField?.setAttribute('type', 'text');
-        passwordIcon?.setAttribute('src', visibilityOffIconPath);
-        btnTogglePassword?.setAttribute('aria-checked', 'true');
-    }
-
-    else {
-        passwordField?.setAttribute('type', 'password');
-        passwordIcon?.setAttribute('src', visibilityIconPath);
-        btnTogglePassword?.setAttribute('aria-checked', 'false');
     }
 }
