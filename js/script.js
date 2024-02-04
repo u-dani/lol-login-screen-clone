@@ -1,9 +1,6 @@
 "use strict";
 const visibilityIconPath = 'images/icons/icon-visibility.svg';
 const visibilityOffIconPath = 'images/icons/icon-visibility-off.svg';
-const passwordField = document.querySelector('#ipassword');
-const btnTogglePassword = document.querySelector('.js-toggle-password-visibility');
-const passwordIcon = btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.querySelector('.icon');
 const loginForm = document.querySelector('.js-form');
 const credentialInputs = document.querySelectorAll('#iusername, #ipassword');
 const usernameInput = document.querySelector('#iusername');
@@ -11,6 +8,8 @@ const passwordInput = document.querySelector('#ipassword');
 const usernameError = document.querySelector('.js-username-error');
 const passwordError = document.querySelector('.js-password-error');
 const submitButton = document.querySelector('.js-btn-submit');
+const btnTogglePassword = document.querySelector('.js-toggle-password-visibility');
+const passwordIcon = btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.querySelector('.icon');
 function validateUsername() {
     const regex = /^[\w\s\-]*$/;
     const value = usernameInput.value.trim();
@@ -38,49 +37,6 @@ function validatePassword() {
         typeError: undefined
     };
 }
-function togglePasswordVisibility() {
-    const type = passwordField === null || passwordField === void 0 ? void 0 : passwordField.getAttribute('type');
-    if (type === 'password') {
-        passwordField === null || passwordField === void 0 ? void 0 : passwordField.setAttribute('type', 'text');
-        passwordIcon === null || passwordIcon === void 0 ? void 0 : passwordIcon.setAttribute('src', visibilityOffIconPath);
-        btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.setAttribute('aria-checked', 'true');
-    }
-    else {
-        passwordField === null || passwordField === void 0 ? void 0 : passwordField.setAttribute('type', 'password');
-        passwordIcon === null || passwordIcon === void 0 ? void 0 : passwordIcon.setAttribute('src', visibilityIconPath);
-        btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.setAttribute('aria-checked', 'false');
-    }
-}
-function submitForm(e) {
-    e.preventDefault();
-    const username = validateUsername();
-    const password = validatePassword();
-    if (!username.isValid) {
-        const message = returnErrorMessage({ typeError: username.typeError });
-        usernameError.textContent = message !== null && message !== void 0 ? message : 'Campo inválido';
-        usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.classList.add('is-input-invalid');
-    }
-    if (!password.isValid) {
-        const message = returnErrorMessage({ typeError: password.typeError });
-        passwordError.textContent = message !== null && message !== void 0 ? message : 'Campo inválido';
-        passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.add('is-input-invalid');
-    }
-    const firstInvalidElement = document.querySelector('.is-input-invalid');
-    firstInvalidElement === null || firstInvalidElement === void 0 ? void 0 : firstInvalidElement.focus();
-    if (!firstInvalidElement) {
-        const target = e.target;
-        target.submit();
-    }
-}
-function handleCredentialInputs(e) {
-    const target = e.target;
-    target.classList.remove('is-input-invalid');
-    const username = validateUsername();
-    const password = validatePassword();
-    username.isValid && password.isValid
-        ? submitButton === null || submitButton === void 0 ? void 0 : submitButton.setAttribute('aria-disabled', 'false')
-        : submitButton === null || submitButton === void 0 ? void 0 : submitButton.setAttribute('aria-disabled', 'true');
-}
 function returnErrorMessage({ typeError }) {
     if (typeError === "valueMissing") {
         return "Preencha o campo";
@@ -91,6 +47,15 @@ function returnErrorMessage({ typeError }) {
     if (typeError === "tooShort") {
         return "Deve ter pelo menos 2 caracteres";
     }
+}
+function handleCredentialInputs(e) {
+    const target = e.target;
+    target.classList.remove('is-input-invalid');
+    const username = validateUsername();
+    const password = validatePassword();
+    username.isValid && password.isValid
+        ? submitButton === null || submitButton === void 0 ? void 0 : submitButton.setAttribute('aria-disabled', 'false')
+        : submitButton === null || submitButton === void 0 ? void 0 : submitButton.setAttribute('aria-disabled', 'true');
 }
 function usernameInputFocusout() {
     const username = validateUsername();
@@ -114,8 +79,42 @@ function passwordInputFocusout() {
     passwordError.textContent = message !== null && message !== void 0 ? message : 'Campo inválido';
     passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.add('is-input-invalid');
 }
-btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.addEventListener('click', togglePasswordVisibility);
-loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener('submit', submitForm);
+function submitForm(e) {
+    e.preventDefault();
+    const username = validateUsername();
+    const password = validatePassword();
+    if (!username.isValid) {
+        const message = returnErrorMessage({ typeError: username.typeError });
+        usernameError.textContent = message !== null && message !== void 0 ? message : 'Campo inválido';
+        usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.classList.add('is-input-invalid');
+    }
+    if (!password.isValid) {
+        const message = returnErrorMessage({ typeError: password.typeError });
+        passwordError.textContent = message !== null && message !== void 0 ? message : 'Campo inválido';
+        passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.add('is-input-invalid');
+    }
+    const firstInvalidElement = document.querySelector('.is-input-invalid');
+    firstInvalidElement === null || firstInvalidElement === void 0 ? void 0 : firstInvalidElement.focus();
+    if (!firstInvalidElement) {
+        const target = e.target;
+        target.submit();
+    }
+}
+function togglePasswordVisibility() {
+    const type = passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.getAttribute('type');
+    if (type === 'password') {
+        passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.setAttribute('type', 'text');
+        passwordIcon === null || passwordIcon === void 0 ? void 0 : passwordIcon.setAttribute('src', visibilityOffIconPath);
+        btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.setAttribute('aria-checked', 'true');
+    }
+    else {
+        passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.setAttribute('type', 'password');
+        passwordIcon === null || passwordIcon === void 0 ? void 0 : passwordIcon.setAttribute('src', visibilityIconPath);
+        btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.setAttribute('aria-checked', 'false');
+    }
+}
+credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.addEventListener('focusout', () => usernameInputFocusout());
 passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.addEventListener('focusout', () => passwordInputFocusout());
-credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
+loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener('submit', submitForm);
+btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.addEventListener('click', togglePasswordVisibility);
