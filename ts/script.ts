@@ -134,20 +134,3 @@ loginForm?.addEventListener('submit', submitForm);
 usernameInput?.addEventListener('focusout', () => usernameInputFocusout());
 passwordInput?.addEventListener('focusout', () => validatePassword());
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
-
-/*
-    .is-input-invalid
-
-    MENSAGENS DE ERRO
-        "Preencha o campo"
-        
-        
-
-    passwordError!.textContent = 'Preencha o campo';
-    passwordInput?.classList.add('is-input-invalid');
-
-    // limpar campo caso só tenha espaços
-    if (/^[\s]+$/.test(usernameInput!.value)) {
-
-    }
-*/
