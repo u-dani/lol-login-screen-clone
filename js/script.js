@@ -71,6 +71,17 @@ function handleCredentialInputs(e) {
         ? submitButton === null || submitButton === void 0 ? void 0 : submitButton.setAttribute('aria-disabled', 'false')
         : submitButton === null || submitButton === void 0 ? void 0 : submitButton.setAttribute('aria-disabled', 'true');
 }
+function returnErrorMessage({ typeError }) {
+    if (typeError === "valueMissing") {
+        return "Preencha o campo";
+    }
+    if (typeError === "invalidCharacters") {
+        return "Caracteres especiais não são permitidos no nome de usuário";
+    }
+    if (typeError === "tooShort") {
+        return "Deve ter pelo menos 2 caracteres";
+    }
+}
 btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.addEventListener('click', togglePasswordVisibility);
 loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener('submit', submitForm);
 usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.addEventListener('focusout', () => validateUsername());
@@ -81,8 +92,8 @@ credentialInputs.forEach(input => input.addEventListener('input', handleCredenti
 
     MENSAGENS DE ERRO
         "Preencha o campo"
-        "Caracteres especiais não são permitidos no nome de usuário"
-        "Deve ter pelo menos 2 caracteres"
+        
+        
 
     passwordError!.textContent = 'Preencha o campo';
     passwordInput?.classList.add('is-input-invalid');
