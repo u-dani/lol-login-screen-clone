@@ -112,10 +112,26 @@ function returnErrorMessage({ typeError }: { typeError: inputValidationReturn["t
     }
 }
 
+function usernameInputFocusout() {
+    const username = validateUsername();
+
+    if (username.isValid) {
+        return;
+    }
+
+    if (username.typeError === "valueMissing") {
+        usernameInput!.value = "";
+        return;
+    }
+
+    const message = returnErrorMessage({ typeError: username.typeError });
+    usernameError!.textContent = message ?? 'Campo inválido';
+    usernameInput?.classList.add('is-input-invalid');
+}
 
 btnTogglePassword?.addEventListener('click', togglePasswordVisibility);
 loginForm?.addEventListener('submit', submitForm);
-usernameInput?.addEventListener('focusout', () => validateUsername());
+usernameInput?.addEventListener('focusout', () => usernameInputFocusout());
 passwordInput?.addEventListener('focusout', () => validatePassword());
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 
@@ -131,7 +147,7 @@ credentialInputs.forEach(input => input.addEventListener('input', handleCredenti
     passwordInput?.classList.add('is-input-invalid');
 
     // limpar campo caso só tenha espaços
-    // if (/^[\s]+$/.test(usernameInput!.value)) {
-    //     usernameInput!.value = "";
-    // }
+    if (/^[\s]+$/.test(usernameInput!.value)) {
+
+    }
 */
