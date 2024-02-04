@@ -129,8 +129,20 @@ function usernameInputFocusout() {
     usernameInput?.classList.add('is-input-invalid');
 }
 
+function passwordInputFocusout() {
+    const password = validatePassword();
+
+    if (password.isValid || password.typeError === 'valueMissing') {
+        return;
+    }
+
+    const message = returnErrorMessage({ typeError: password.typeError });
+    passwordError!.textContent = message ?? 'Campo inválido';
+    passwordInput?.classList.add('is-input-invalid');
+}
+
 btnTogglePassword?.addEventListener('click', togglePasswordVisibility);
 loginForm?.addEventListener('submit', submitForm);
 usernameInput?.addEventListener('focusout', () => usernameInputFocusout());
-passwordInput?.addEventListener('focusout', () => validatePassword());
+passwordInput?.addEventListener('focusout', () => passwordInputFocusout());
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));

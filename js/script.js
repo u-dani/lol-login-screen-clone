@@ -95,24 +95,17 @@ function usernameInputFocusout() {
     usernameError.textContent = message !== null && message !== void 0 ? message : 'Campo inválido';
     usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.classList.add('is-input-invalid');
 }
+function passwordInputFocusout() {
+    const password = validatePassword();
+    if (password.isValid || password.typeError === 'valueMissing') {
+        return;
+    }
+    const message = returnErrorMessage({ typeError: password.typeError });
+    passwordError.textContent = message !== null && message !== void 0 ? message : 'Campo inválido';
+    passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.classList.add('is-input-invalid');
+}
 btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.addEventListener('click', togglePasswordVisibility);
 loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener('submit', submitForm);
 usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.addEventListener('focusout', () => usernameInputFocusout());
-passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.addEventListener('focusout', () => validatePassword());
+passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.addEventListener('focusout', () => passwordInputFocusout());
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
-/*
-    .is-input-invalid
-
-    MENSAGENS DE ERRO
-        "Preencha o campo"
-        
-        
-
-    passwordError!.textContent = 'Preencha o campo';
-    passwordInput?.classList.add('is-input-invalid');
-
-    // limpar campo caso só tenha espaços
-    if (/^[\s]+$/.test(usernameInput!.value)) {
-
-    }
-*/ 
