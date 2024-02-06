@@ -374,6 +374,7 @@ button {
   box-shadow: 0 0 0 4px black;
 }
 .c-dropdown-menu .list-options {
+  display: none;
   background-color: #211F1F;
   padding: 16px 26px;
   border-radius: 4px;
@@ -443,4 +444,8 @@ button {
 }
 .l-input-validation-container:has(.is-input-invalid) .input-field:focus-within:not(:has(.btn-icon:focus-visible)) {
   border-color: #BA27E7 !important;
+}
+
+.c-dropdown-menu:has(.menu-is-expanded) .list-options {
+  display: block;
 }/*# sourceMappingURL=main.css.map */
