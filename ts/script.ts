@@ -13,6 +13,8 @@ const submitButton = document.querySelector('.js-btn-submit');
 const btnTogglePassword = document.querySelector('.js-toggle-password-visibility');
 const passwordIcon = btnTogglePassword?.querySelector('.icon');
 
+const toggleMenuButton = document.querySelector('.js-menu-toggle');
+
 interface inputValidationReturn {
     isValid: boolean
     typeError: 'valueMissing' | 'tooShort' | 'invalidCharacters' | undefined
@@ -153,8 +155,13 @@ function togglePasswordVisibility() {
     }
 }
 
+function toggleMenu() {
+    toggleMenuButton?.classList.toggle('menu-is-expanded');
+}
+
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 usernameInput?.addEventListener('focusout', () => usernameInputFocusout());
 passwordInput?.addEventListener('focusout', () => passwordInputFocusout());
 loginForm?.addEventListener('submit', submitForm);
 btnTogglePassword?.addEventListener('click', togglePasswordVisibility);
+toggleMenuButton?.addEventListener('click', toggleMenu);
