@@ -35,3 +35,7 @@
         }
     }
 }
+
+.c-dropdown-menu:has(.menu-is-expanded) .list-options {
+    display: block;
+}
