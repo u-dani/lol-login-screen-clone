@@ -8,8 +8,9 @@ const passwordInput = document.querySelector('#ipassword');
 const usernameError = document.querySelector('.js-username-error');
 const passwordError = document.querySelector('.js-password-error');
 const submitButton = document.querySelector('.js-btn-submit');
-const btnTogglePassword = document.querySelector('.js-toggle-password-visibility');
-const passwordIcon = btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.querySelector('.icon');
+const togglePasswordButton = document.querySelector('.js-toggle-password-visibility');
+const passwordIcon = togglePasswordButton === null || togglePasswordButton === void 0 ? void 0 : togglePasswordButton.querySelector('.icon');
+const toggleMenuButton = document.querySelector('.js-menu-toggle');
 function validateUsername() {
     const regex = /^[\w\s\-]*$/;
     const value = usernameInput.value.trim();
@@ -105,16 +106,20 @@ function togglePasswordVisibility() {
     if (type === 'password') {
         passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.setAttribute('type', 'text');
         passwordIcon === null || passwordIcon === void 0 ? void 0 : passwordIcon.setAttribute('src', visibilityOffIconPath);
-        btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.setAttribute('aria-checked', 'true');
+        togglePasswordButton === null || togglePasswordButton === void 0 ? void 0 : togglePasswordButton.setAttribute('aria-checked', 'true');
     }
     else {
         passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.setAttribute('type', 'password');
         passwordIcon === null || passwordIcon === void 0 ? void 0 : passwordIcon.setAttribute('src', visibilityIconPath);
-        btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.setAttribute('aria-checked', 'false');
+        togglePasswordButton === null || togglePasswordButton === void 0 ? void 0 : togglePasswordButton.setAttribute('aria-checked', 'false');
     }
+}
+function toggleMenu() {
+    toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.classList.toggle('menu-is-expanded');
 }
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.addEventListener('focusout', () => usernameInputFocusout());
 passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.addEventListener('focusout', () => passwordInputFocusout());
 loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener('submit', submitForm);
-btnTogglePassword === null || btnTogglePassword === void 0 ? void 0 : btnTogglePassword.addEventListener('click', togglePasswordVisibility);
+togglePasswordButton === null || togglePasswordButton === void 0 ? void 0 : togglePasswordButton.addEventListener('click', togglePasswordVisibility);
+toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.addEventListener('click', toggleMenu);
