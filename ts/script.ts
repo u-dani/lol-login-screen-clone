@@ -10,8 +10,8 @@ const usernameError = document.querySelector('.js-username-error');
 const passwordError = document.querySelector('.js-password-error');
 const submitButton = document.querySelector('.js-btn-submit');
 
-const btnTogglePassword = document.querySelector('.js-toggle-password-visibility');
-const passwordIcon = btnTogglePassword?.querySelector('.icon');
+const togglePasswordButton = document.querySelector('.js-toggle-password-visibility');
+const passwordIcon = togglePasswordButton?.querySelector('.icon');
 
 const toggleMenuButton = document.querySelector('.js-menu-toggle');
 
@@ -145,13 +145,13 @@ function togglePasswordVisibility() {
     if (type === 'password') {
         passwordInput?.setAttribute('type', 'text');
         passwordIcon?.setAttribute('src', visibilityOffIconPath);
-        btnTogglePassword?.setAttribute('aria-checked', 'true');
+        togglePasswordButton?.setAttribute('aria-checked', 'true');
     }
 
     else {
         passwordInput?.setAttribute('type', 'password');
         passwordIcon?.setAttribute('src', visibilityIconPath);
-        btnTogglePassword?.setAttribute('aria-checked', 'false');
+        togglePasswordButton?.setAttribute('aria-checked', 'false');
     }
 }
 
@@ -163,5 +163,5 @@ credentialInputs.forEach(input => input.addEventListener('input', handleCredenti
 usernameInput?.addEventListener('focusout', () => usernameInputFocusout());
 passwordInput?.addEventListener('focusout', () => passwordInputFocusout());
 loginForm?.addEventListener('submit', submitForm);
-btnTogglePassword?.addEventListener('click', togglePasswordVisibility);
+togglePasswordButton?.addEventListener('click', togglePasswordVisibility);
 toggleMenuButton?.addEventListener('click', toggleMenu);
