@@ -62,19 +62,28 @@
 }
 
 .l-dropdown-menu {
-    position: absolute;
-    top: 45px;
-    right: 45px;
-
     .toggle {
         position: absolute;
-        top: 0px;
-        right: 0;
+        top: 45px;
+        right: 45px;
+        z-index: 50;
     }
 
     .list-options {
         position: absolute;
-        top: calc(46px + 12px);
-        right: 0;
+        top: calc(46px + 12px + 45px);
+        right: 45px;
+        z-index: 50;
+    }
+
+    .close {
+        display: none;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: rgba($color: red, $alpha: 0.3);
+        top: 0;
+        left: 0;
+        z-index: 40;
     }
 }
