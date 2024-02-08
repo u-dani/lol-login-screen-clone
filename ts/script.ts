@@ -165,13 +165,15 @@ function handleClickMenu() {
 
 function toggleDropdownMenu() {
     if (toggleMenuButton?.classList.contains('menu-is-expanded')) {
-        document.removeEventListener('click', handleClickMenu)
+        document.removeEventListener('click', handleClickMenu);
         toggleMenuButton?.classList.remove('menu-is-expanded');
+        toggleMenuButton.setAttribute('aria-expanded', 'false');
     }
 
     else {
+        document.addEventListener('click', handleClickMenu);
         toggleMenuButton?.classList.add('menu-is-expanded');
-        document.addEventListener('click', handleClickMenu)
+        toggleMenuButton?.setAttribute('aria-expanded', 'true');
     }
 }
 
