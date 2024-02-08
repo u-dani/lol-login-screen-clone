@@ -75,15 +75,4 @@
         right: 45px;
         z-index: 50;
     }
-
-    .close {
-        display: none;
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        background: rgba($color: red, $alpha: 0.3);
-        top: 0;
-        left: 0;
-        z-index: 40;
-    }
 }
