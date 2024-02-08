@@ -119,16 +119,6 @@ button {
   right: 45px;
   z-index: 50;
 }
-.l-dropdown-menu .close {
-  display: none;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(255, 0, 0, 0.3);
-  top: 0;
-  left: 0;
-  z-index: 40;
-}
 
 .c-logo {
   width: 108px;
@@ -386,8 +376,9 @@ button {
 .c-dropdown-menu .list-options {
   display: none;
   background-color: #211F1F;
-  padding: 16px 26px;
+  padding: 16px 12px;
   border-radius: 4px;
+  min-width: 260px;
 }
 .c-dropdown-menu .option {
   background-color: #211F1F;
@@ -396,7 +387,7 @@ button {
   font-size: 0.8rem;
   font-weight: bold;
   letter-spacing: 0.5px;
-  padding: 14px 12px;
+  padding: 14px 28px;
   text-align: start;
   min-width: 200px;
   width: 100%;
@@ -456,6 +447,6 @@ button {
   border-color: #BA27E7 !important;
 }
 
-.c-dropdown-menu:has(.menu-is-expanded) .list-options, .c-dropdown-menu:has(.menu-is-expanded) .close {
+.c-dropdown-menu:has(.menu-is-expanded) .list-options {
   display: block;
 }/*# sourceMappingURL=main.css.map */
