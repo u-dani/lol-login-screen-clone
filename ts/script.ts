@@ -13,7 +13,8 @@ const submitButton = document.querySelector('.js-btn-submit');
 const togglePasswordButton = document.querySelector('.js-toggle-password-visibility');
 const passwordIcon = togglePasswordButton?.querySelector('.icon');
 
-const toggleMenuButton = document.querySelector('.js-menu-toggle');
+const dropdownMenu = document.querySelector<HTMLDivElement>('.js-dropdown-menu');
+const toggleMenuButton = document.querySelector<HTMLButtonElement>('.js-menu-toggle');
 
 interface inputValidationReturn {
     isValid: boolean
@@ -155,8 +156,23 @@ function togglePasswordVisibility() {
     }
 }
 
-function toggleMenu() {
-    toggleMenuButton?.classList.toggle('menu-is-expanded');
+function handleClickMenu() {
+    if (!dropdownMenu?.matches(':hover')) {  // checar se o click é fora do menu
+        document.removeEventListener('click', handleClickMenu)
+        toggleMenuButton?.click()
+    }
+}
+
+function toggleDropdownMenu() {
+    if (toggleMenuButton?.classList.contains('menu-is-expanded')) {
+        document.removeEventListener('click', handleClickMenu)
+        toggleMenuButton?.classList.remove('menu-is-expanded');
+    }
+
+    else {
+        toggleMenuButton?.classList.add('menu-is-expanded');
+        document.addEventListener('click', handleClickMenu)
+    }
 }
 
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
@@ -164,4 +180,4 @@ usernameInput?.addEventListener('focusout', () => usernameInputFocusout());
 passwordInput?.addEventListener('focusout', () => passwordInputFocusout());
 loginForm?.addEventListener('submit', submitForm);
 togglePasswordButton?.addEventListener('click', togglePasswordVisibility);
-toggleMenuButton?.addEventListener('click', toggleMenu);
+toggleMenuButton?.addEventListener('click', toggleDropdownMenu);
