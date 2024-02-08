@@ -284,8 +284,9 @@
     .list-options {
         display: none;
         background-color: map-get(var.$colors, gray-800);
-        padding: 16px 26px;
+        padding: 16px 12px;
         border-radius: 4px;
+        min-width: 260px;
     }
 
     .option {
@@ -295,7 +296,7 @@
         font-size: .8rem;
         font-weight: bold;
         letter-spacing: .5px;
-        padding: 14px 12px;
+        padding: 14px 28px;
         text-align: start;
         min-width: 200px;
         width: 100%;
