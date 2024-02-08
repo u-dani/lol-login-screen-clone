@@ -10,6 +10,7 @@ const passwordError = document.querySelector('.js-password-error');
 const submitButton = document.querySelector('.js-btn-submit');
 const togglePasswordButton = document.querySelector('.js-toggle-password-visibility');
 const passwordIcon = togglePasswordButton === null || togglePasswordButton === void 0 ? void 0 : togglePasswordButton.querySelector('.icon');
+const dropdownMenu = document.querySelector('.js-dropdown-menu');
 const toggleMenuButton = document.querySelector('.js-menu-toggle');
 function validateUsername() {
     const regex = /^[\w\s\-]*$/;
@@ -114,12 +115,35 @@ function togglePasswordVisibility() {
         togglePasswordButton === null || togglePasswordButton === void 0 ? void 0 : togglePasswordButton.setAttribute('aria-checked', 'false');
     }
 }
-function toggleMenu() {
-    toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.classList.toggle('menu-is-expanded');
+function toggleDropdownMenu() {
+    if (toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.classList.contains('menu-is-expanded')) {
+        document.removeEventListener('click', handleClickMenu);
+        toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.classList.remove('menu-is-expanded');
+        toggleMenuButton.setAttribute('aria-expanded', 'false');
+    }
+    else {
+        document.addEventListener('click', handleClickMenu);
+        toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.classList.add('menu-is-expanded');
+        toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.setAttribute('aria-expanded', 'true');
+    }
+}
+function handleClickMenu(e) {
+    console.log('target ', e.target);
+    // if (target === ) {
+    // }
+    // console.log('handle click')
+    // if (target == toggleMenuButton) {
+    //     console.log('CLICK NO MENU')
+    // }
+    // if (!dropdownMenu?.matches(':hover')) {  // checar se o click é fora do menu
+    //     console.log('cclick fora do menu', target)
+    //     document.removeEventListener('click', handleClickMenu)
+    //     toggleMenuButton?.click()
+    // }
 }
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.addEventListener('focusout', () => usernameInputFocusout());
 passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.addEventListener('focusout', () => passwordInputFocusout());
 loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener('submit', submitForm);
 togglePasswordButton === null || togglePasswordButton === void 0 ? void 0 : togglePasswordButton.addEventListener('click', togglePasswordVisibility);
-toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.addEventListener('click', toggleMenu);
+toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.addEventListener('click', toggleDropdownMenu);
