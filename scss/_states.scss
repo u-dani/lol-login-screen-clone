@@ -36,8 +36,6 @@
     }
 }
 
-.c-dropdown-menu:has(.menu-is-expanded) {
-    .list-options, .close  {
-        display: block;
-    }
+.c-dropdown-menu:has(.menu-is-expanded) .list-options {
+    display: block;
 }
