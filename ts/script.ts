@@ -156,13 +156,6 @@ function togglePasswordVisibility() {
     }
 }
 
-function handleClickMenu() {
-    if (!dropdownMenu?.matches(':hover')) {  // checar se o click é fora do menu
-        document.removeEventListener('click', handleClickMenu)
-        toggleMenuButton?.click()
-    }
-}
-
 function toggleDropdownMenu() {
     if (toggleMenuButton?.classList.contains('menu-is-expanded')) {
         document.removeEventListener('click', handleClickMenu);
@@ -174,6 +167,17 @@ function toggleDropdownMenu() {
         document.addEventListener('click', handleClickMenu);
         toggleMenuButton?.classList.add('menu-is-expanded');
         toggleMenuButton?.setAttribute('aria-expanded', 'true');
+    }
+}
+
+function handleClickMenu({ target }: {target: any}) {
+    if (target.classList.contains('js-menu-toggle')) {
+        return;
+    }
+
+    if (!dropdownMenu?.matches(':hover')) {  // checar se o click é fora do menu
+        document.removeEventListener('click', handleClickMenu);
+        toggleMenuButton?.click();
     }
 }
 
