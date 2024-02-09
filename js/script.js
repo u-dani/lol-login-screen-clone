@@ -127,19 +127,14 @@ function toggleDropdownMenu() {
         toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.setAttribute('aria-expanded', 'true');
     }
 }
-function handleClickMenu(e) {
-    console.log('target ', e.target);
-    // if (target === ) {
-    // }
-    // console.log('handle click')
-    // if (target == toggleMenuButton) {
-    //     console.log('CLICK NO MENU')
-    // }
-    // if (!dropdownMenu?.matches(':hover')) {  // checar se o click é fora do menu
-    //     console.log('cclick fora do menu', target)
-    //     document.removeEventListener('click', handleClickMenu)
-    //     toggleMenuButton?.click()
-    // }
+function handleClickMenu({ target }) {
+    if (target.classList.contains('js-menu-toggle')) {
+        return;
+    }
+    if (!(dropdownMenu === null || dropdownMenu === void 0 ? void 0 : dropdownMenu.matches(':hover'))) { // checar se o click é fora do menu
+        document.removeEventListener('click', handleClickMenu);
+        toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.click();
+    }
 }
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.addEventListener('focusout', () => usernameInputFocusout());
