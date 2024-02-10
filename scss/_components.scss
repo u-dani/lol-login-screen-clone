@@ -331,3 +331,9 @@
     width: calc(100vw - var.$form-content-width);
     height: 100%;
 }
+
+.c-modal {
+    background: darken(map-get(var.$colors, gray-800), 5);
+    color: map-get(var.$colors, gray-50);
+    border-radius: 8px 8px 0px 0px;
+}
