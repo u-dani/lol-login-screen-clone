@@ -76,3 +76,12 @@
         z-index: 50;
     }
 }
+
+.l-modal {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: calc(100vw - 244px);
+    height: calc(100vh - 48px);
+}
