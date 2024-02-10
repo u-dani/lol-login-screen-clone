@@ -180,7 +180,6 @@ toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuBu
 window.onload = () => {
     const selectArr = document.querySelectorAll('.js-select-language');
     selectArr.forEach(select => {
-        console.log(select);
         languagesInSelect({ selectElement: select });
     });
 };

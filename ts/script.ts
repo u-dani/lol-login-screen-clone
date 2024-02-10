@@ -229,7 +229,6 @@ toggleMenuButton?.addEventListener('click', toggleDropdownMenu);
 window.onload = () => {
     const selectArr: NodeListOf<HTMLSelectElement> = document.querySelectorAll('.js-select-language');
     selectArr.forEach( select => {
-        console.log(select)
         languagesInSelect({ selectElement: select });
     });
 }
