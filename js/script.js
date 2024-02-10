@@ -12,6 +12,31 @@ const togglePasswordButton = document.querySelector('.js-toggle-password-visibil
 const passwordIcon = togglePasswordButton === null || togglePasswordButton === void 0 ? void 0 : togglePasswordButton.querySelector('.icon');
 const dropdownMenu = document.querySelector('.js-dropdown-menu');
 const toggleMenuButton = document.querySelector('.js-menu-toggle');
+const languages = [
+    'Bahasa Indonesia',
+    'Bahasa Melayu',
+    'Deutsch',
+    'English (PH)',
+    'English (SG)',
+    'English (US)',
+    'Espanõl (LATAM)',
+    'Espanõl (ES)',
+    'Français',
+    'Italiano',
+    'Magyar',
+    'Polski',
+    'Português',
+    'Română',
+    'Tiếng Việt',
+    'Türkçe',
+    'Čeština',
+    'Ελληνικά',
+    'Русский',
+    '한국어',
+    '日本語',
+    'ภาษาไทย',
+    '繁體中文'
+];
 function validateUsername() {
     const regex = /^[\w\s\-]*$/;
     const value = usernameInput.value.trim();
@@ -136,9 +161,26 @@ function handleClickMenu({ target }) {
         toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.click();
     }
 }
+function languagesInSelect({ selectElement }) {
+    languages.forEach(lang => {
+        const option = document.createElement('option');
+        option.textContent = lang;
+        option.setAttribute('value', lang);
+        selectElement === null || selectElement === void 0 ? void 0 : selectElement.appendChild(option);
+    });
+    const defaultOption = selectElement.querySelector('[value="Português"]');
+    defaultOption === null || defaultOption === void 0 ? void 0 : defaultOption.setAttribute('selected', '');
+}
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 usernameInput === null || usernameInput === void 0 ? void 0 : usernameInput.addEventListener('focusout', () => usernameInputFocusout());
 passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.addEventListener('focusout', () => passwordInputFocusout());
 loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener('submit', submitForm);
 togglePasswordButton === null || togglePasswordButton === void 0 ? void 0 : togglePasswordButton.addEventListener('click', togglePasswordVisibility);
 toggleMenuButton === null || toggleMenuButton === void 0 ? void 0 : toggleMenuButton.addEventListener('click', toggleDropdownMenu);
+window.onload = () => {
+    const selectArr = document.querySelectorAll('.js-select-language');
+    selectArr.forEach(select => {
+        console.log(select);
+        languagesInSelect({ selectElement: select });
+    });
+};

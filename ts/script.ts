@@ -16,6 +16,32 @@ const passwordIcon = togglePasswordButton?.querySelector('.icon');
 const dropdownMenu = document.querySelector<HTMLDivElement>('.js-dropdown-menu');
 const toggleMenuButton = document.querySelector<HTMLButtonElement>('.js-menu-toggle');
 
+const languages = [
+    'Bahasa Indonesia',
+    'Bahasa Melayu',
+    'Deutsch',
+    'English (PH)',
+    'English (SG)',
+    'English (US)',
+    'Espanõl (LATAM)',
+    'Espanõl (ES)',
+    'Français',
+    'Italiano',
+    'Magyar',
+    'Polski',
+    'Português',
+    'Română',
+    'Tiếng Việt',
+    'Türkçe',
+    'Čeština',
+    'Ελληνικά',
+    'Русский',
+    '한국어',
+    '日本語',
+    'ภาษาไทย',
+    '繁體中文'
+]
+
 interface inputValidationReturn {
     isValid: boolean
     typeError: 'valueMissing' | 'tooShort' | 'invalidCharacters' | undefined
@@ -181,9 +207,29 @@ function handleClickMenu({ target }: {target: any}) {
     }
 }
 
+function languagesInSelect({ selectElement }: { selectElement: HTMLSelectElement }) {
+    languages.forEach(lang => {
+        const option = document.createElement('option');
+        option.textContent = lang;
+        option.setAttribute('value', lang);
+        selectElement?.appendChild(option);
+    });
+
+    const defaultOption = selectElement.querySelector('[value="Português"]');
+    defaultOption?.setAttribute('selected', '');
+}
+
 credentialInputs.forEach(input => input.addEventListener('input', handleCredentialInputs));
 usernameInput?.addEventListener('focusout', () => usernameInputFocusout());
 passwordInput?.addEventListener('focusout', () => passwordInputFocusout());
 loginForm?.addEventListener('submit', submitForm);
 togglePasswordButton?.addEventListener('click', togglePasswordVisibility);
 toggleMenuButton?.addEventListener('click', toggleDropdownMenu);
+
+window.onload = () => {
+    const selectArr: NodeListOf<HTMLSelectElement> = document.querySelectorAll('.js-select-language');
+    selectArr.forEach( select => {
+        console.log(select)
+        languagesInSelect({ selectElement: select });
+    });
+}
